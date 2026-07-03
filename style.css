@@ -1,0 +1,106 @@
+/* ==========================================
+   1. GLOBAL RESETS & BASE STYLES
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ffffff;
+}
+
+/* ==========================================
+   2. NAVBAR CONTAINER LAYOUT
+   ========================================== */
+.navbar {
+    width: 100%;
+    height: 80px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between; /* Pushes Logo, Capsule, and Socials apart */
+    align-items: center;
+    padding: 0 10%; /* Creates clean breathing room on screen edges */
+}
+
+/* Logo Styling */
+h2.nav-logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: #000000;
+}
+
+/* ==========================================
+   3. MIDDLE CAPSULE MENU & HOVER EFFECT
+   ========================================== */
+ul {
+    display: flex;
+    height: 44px; /* Gives internal active items breathing room */
+    padding: 4px; /* Creates a clean gap inside the pill border */
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    background-color: rgba(0, 0, 0, 0.04); /* Light gray pill background */
+    border-radius: 50px; /* Fully rounded capsule ends */
+}
+
+li {
+    list-style: none;
+    height: 100%; /* Spans full height of the capsule container */
+    display: flex;
+    align-items: center;
+    padding: 0 20px; /* Horizontal space inside individual tabs */
+    border-radius: 50px; /* Curves matching the capsule edge */
+    cursor: pointer;
+    transition: all 0.25s ease; /* Smooth hover transition */
+}
+
+/* The Exact Fill-in Hover Effect You Wanted */
+li:hover {
+    background-color: #ffffff; /* Turns the entire tab space white */
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05); /* Soft premium shadow drop */
+}
+
+/* Links Text & Icon Layout */
+ul li a {
+    text-decoration: none;
+    color: #555555;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Spaces icon away from text */
+    transition: color 0.25s ease;
+}
+
+/* Darkens link text slightly when parent li is hovered */
+li:hover a {
+    color: #000000;
+}
+
+/* ==========================================
+   4. RIGHT SIDE SOCIAL ICONS
+   ========================================== */
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 24px; /* Space between social icons */
+}
+
+.social-icons a {
+    text-decoration: none;
+    font-size: 18px; /* Clean size matching your design scale */
+    color: #333333;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Interactive scale bounce for social icons */
+.social-icons a:hover {
+    transform: scale(1.15);
+    color: #000000;
+}
