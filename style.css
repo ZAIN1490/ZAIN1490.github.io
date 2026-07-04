@@ -13,9 +13,22 @@ html {
 
 body {
     font-family: "Inter", sans-serif;
-    background-color: #ffffff;
+    color: #1e293b; /* Deep slate professional typography color */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* Pushes footer cleanly to the absolute bottom */
+    
+    /* Clean, ultra-modern premium light background */
+    background-color: #fafafa;
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(219, 234, 254, 0.3) 0, transparent 50%), 
+        radial-gradient(at 100% 100%, rgba(243, 232, 255, 0.4) 0, transparent 50%);
+    background-attachment: fixed;
 }
 
+a {
+    text-decoration: none;
+}
 
 /* ==========================================
    2. NAVBAR CONTAINER LAYOUT
@@ -23,68 +36,76 @@ body {
 .navbar {
     width: 100%;
     height: 80px;
-    background-color: #ffffff;
     display: flex;
-    justify-content: space-between; /* Pushes Logo, Capsule, and Socials apart */
+    justify-content: space-between;
     align-items: center;
-    padding: 0 10%; /* Creates clean breathing room on screen edges */
+    padding: 0 10%;
 }
 
-/* Logo Styling */
+/* Professional dark slate bold logo */
 h2.nav-logo {
     font-size: 22px;
     font-weight: 700;
-    color: #000000;
+    color: #0f172a;
+    letter-spacing: -0.5px;
 }
 
 /* ==========================================
-   3. MIDDLE CAPSULE MENU & HOVER EFFECT
+   3. CLEAN MENU WITH ANIMATED UNDERLINE HOVER
    ========================================== */
 ul {
     display: flex;
-    height: 44px; /* Gives internal active items breathing room */
-    padding: 4px; /* Creates a clean gap inside the pill border */
+    height: 44px;
     align-items: center;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    background-color: rgba(0, 0, 0, 0.04); /* Light gray pill background */
-    border-radius: 50px; /* Fully rounded capsule ends */
+    background-color: transparent;
+    border: none;
+    gap: 8px; /* Added slight gap between items */
 }
 
 li {
     list-style: none;
-    height: 100%; /* Spans full height of the capsule container */
+    height: 100%;
     display: flex;
     align-items: center;
-    padding: 0 20px; /* Horizontal space inside individual tabs */
-    border-radius: 50px; /* Curves matching the capsule edge */
+    padding: 0 12px;
     cursor: pointer;
-    transition: all 0.25s ease; /* Smooth hover transition */
 }
 
-/* The Exact Fill-in Hover Effect You Wanted */
-li:hover {
-    background-color: #ffffff; /* Turns the entire tab space white */
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05); /* Soft premium shadow drop */
-}
-
-/* Links Text & Icon Layout */
+/* Clean text link configuration */
 ul li a {
     text-decoration: none;
-    color: #555555;
+    color: #64748b; /* Soft muted charcoal */
     font-size: 14px;
     font-weight: 500;
     display: flex;
     align-items: center;
-    gap: 8px; /* Spaces icon away from text */
+    gap: 8px;
+    position: relative; /* Required anchor context for the underline bar */
+    padding: 6px 0;
     transition: color 0.25s ease;
 }
-a{
-    text-decoration: none;
+
+/* The hidden sliding underline effect asset */
+ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0); /* Hidden by default */
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #4f46e5; /* Premium Indigo Accent */
+    transform-origin: bottom center; /* Expands outwards from the middle */
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Darkens link text slightly when parent li is hovered */
+/* Active hover state triggers */
 li:hover a {
-    color: #000000;
+    color: #4f46e5; /* Changes text to Indigo */
+}
+
+li:hover a::after {
+    transform: scaleX(1); /* Smoothly slides the underline out */
 }
 
 /* ==========================================
@@ -93,84 +114,153 @@ li:hover a {
 .social-icons {
     display: flex;
     align-items: center;
-    gap: 24px; /* Space between social icons */
+    gap: 20px;
 }
 
 .social-icons a {
     text-decoration: none;
-    font-size: 18px; /* Clean size matching your design scale */
-    color: #333333;
-    transition: all 0.2s ease-in-out;
-}
-
-/* Interactive scale bounce for social icons */
-.social-icons a:hover {
-    transform: scale(1.15);
-    color: #000000;
-}
-#hero{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    min-height: 80vh;
-    align-items: center;
-    flex-direction: column;
-}
-h1{
-    font-size: 3.9rem;
-    font-weight: 700;
-    line-height: 1.2;
-    color: #000000;
-}
-.hero-content{
-    text-align: center;
-    max-width: 800px;
-    margin-bottom: 20px;
-}
-.hero-content h2{
-    font-size: 22px;
-    font-weight: 500;
-    line-height: 1.5;
-    color:#000000;
-}
-.hero-content p{
     font-size: 18px;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #000000;
-    max-width: 600px;
-    width: 100%;
-    margin:15px auto 0
-    
-}
-#btns{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-    
-}
-.btn{
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: 500;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    border-radius: 50px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #64748b;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.btn-certificate{
-     background-color: #007bff;
-     color: #ffffff;
-}
-.btn-journey{
+/* Accent shift & subtle bounce lift on hover */
+.social-icons a:hover {
+    transform: translateY(-3px);
     color: black;
 }
-footer{
+
+/* ==========================================
+   5. HERO SECTION
+   ========================================== */
+#hero {
+    flex: 1; /* Claims remaining vertical viewport space */
     display: flex;
     justify-content: center;
     text-align: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px 20px;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.15;
+    color: #0f172a; /* Ultra-dark slate for strong crisp text */
+    letter-spacing: -1px;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 750px;
+    margin-bottom: 24px;
+}
+
+.hero-content h2 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #4f46e5; /* Highlights your title in clean indigo */
+    margin-top: 16px;
+}
+
+#hero p {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #475569; /* Balanced slate gray reading layout text */
+    max-width: 580px;
+    width: 100%;
+    margin: 14px auto 0;
+}
+
+/* ==========================================
+   6. TYPING ANIMATION (EXACTLY 19 CHARS)
+   ========================================== */
+.typing-container {
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.typing-text {
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: "Inter", sans-serif;
+    border-right: 3px solid #4f46e5; /* Indigo cursor match */
+    
+    /* Perfect letter step count calculation for "Hi, I'm Zain Masood" */
+    animation: 
+      typing 2.5s steps(19) forwards, 
+      blink-cursor 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-cursor {
+    from, to { border-color: transparent; }
+    50% { border-color: #4f46e5; }
+}
+
+/* ==========================================
+   7. PREMIUM BUTTON HIERARCHY & FOOTER
+   ========================================== */
+#btns {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 26px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px; /* Balanced modern soft-rounded corners */
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Prominent Slate Primary Button */
+.btn-certificate {
+     background-color: #0f172a;
+     color: #ffffff;
+     border: 1px solid #0f172a;
+     box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+}
+
+.btn-certificate:hover {
+    background-color: #1e293b;
+    border-color: #1e293b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.2);
+}
+
+/* Premium Transparent Ghost Button */
+.btn-journey {
+    color: #475569;
+    background-color: transparent;
+    border: 1px solid #cbd5e1; /* Subtle clean gray outline */
+}
+
+.btn-journey:hover {
+    color: #0f172a;
+    background-color: #f1f5f9;
+    border-color: #94a3b8;
+    transform: translateY(-2px);
+}
+
+/* Soft, out-of-the-way minimalist footer positioned at absolute base */
+footer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 24px 0;
+    font-size: 13px;
+    color: #94a3b8;
+    border-top: 1px solid rgba(0, 0, 0, 0.03);
 }
