@@ -9,20 +9,23 @@
 
 html {
     scroll-behavior: smooth;
+    /* Extra padding prevents the sticky header from blocking sections on scroll click */
+    scroll-padding-top: 100px; 
 }
 
 body {
     font-family: "Inter", sans-serif;
-    color: #1e293b; /* Deep slate professional typography color */
+    color: #1e293b; 
     min-height: 100vh;
     display: flex;
-    flex-direction: column; /* Pushes footer cleanly to the absolute bottom */
+    flex-direction: column; 
     
-    /* Clean, ultra-modern premium light background */
-    background-color: #fafafa;
+    /* Premium matching background with soft pastel radial gradients */
+    background-color: #f8fafc;
     background-image: 
-        radial-gradient(at 0% 0%, rgba(219, 234, 254, 0.3) 0, transparent 50%), 
-        radial-gradient(at 100% 100%, rgba(243, 232, 255, 0.4) 0, transparent 50%);
+        radial-gradient(at 0% 0%, rgba(219, 234, 254, 0.4) 0, transparent 45%), 
+        radial-gradient(at 100% 100%, rgba(253, 242, 248, 0.6) 0, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(243, 232, 255, 0.3) 0, transparent 40%);
     background-attachment: fixed;
 }
 
@@ -31,35 +34,67 @@ a {
 }
 
 /* ==========================================
-   2. NAVBAR CONTAINER LAYOUT
+   2. NAVBAR CONTAINER LAYOUT (FLOATING PILL)
    ========================================== */
-.navbar {
+/* ==========================================
+   2. NAVBAR CONTAINER LAYOUT (FLOATING PILL)
+   ========================================== */
+/* ==========================================
+   2. NAVBAR CONTAINER LAYOUT (FLOATING PILL WITH SHIELD)
+   ========================================== */
+.navbar-wrapper {
+    position: sticky;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 80px;
+    z-index: 1000;
+    padding-top: 20px; /* Generates the 20px space above the pill */
+    padding-bottom: 10px;
+    
+    /* Matches the page background to completely hide elements passing underneath */
+    background: #f8fafc; 
+}
+
+.navbar {
+    width: 84%; 
+    max-width: 1200px;
+    height: 65px; 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 10%;
+    padding: 0 32px;
+    margin: 0 auto; /* Centered horizontally inside the wrapper */
+    
+    /* Premium frosted glass setup */
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 100px; 
+    
+    /* Soft drop shadow */
+    box-shadow: 
+        0 4px 6px -1px rgba(0, 0, 0, 0.02), 
+        0 10px 15px -3px rgba(0, 0, 0, 0.03);
 }
-
 /* Professional dark slate bold logo */
 h2.nav-logo {
     font-size: 22px;
-    font-weight: 700;
+    font-weight: 800;
     color: #0f172a;
     letter-spacing: -0.5px;
 }
 
 /* ==========================================
-   3. CLEAN MENU WITH ANIMATED UNDERLINE HOVER
+   3. CAPSULE MENU STYLE
    ========================================== */
 ul {
     display: flex;
-    height: 44px;
+    height: 48px;
     align-items: center;
     background-color: transparent;
     border: none;
-    gap: 8px; /* Added slight gap between items */
+    gap: 4px;
 }
 
 li {
@@ -67,45 +102,26 @@ li {
     height: 100%;
     display: flex;
     align-items: center;
-    padding: 0 12px;
-    cursor: pointer;
 }
 
-/* Clean text link configuration */
+/* Clean text link configuration mapped to look like capsule pills */
 ul li a {
     text-decoration: none;
-    color: #64748b; /* Soft muted charcoal */
+    color: #475569; 
     font-size: 14px;
     font-weight: 500;
     display: flex;
     align-items: center;
-    gap: 8px;
-    position: relative; /* Required anchor context for the underline bar */
-    padding: 6px 0;
-    transition: color 0.25s ease;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 50px;
+    transition: all 0.25s ease;
 }
 
-/* The hidden sliding underline effect asset */
-ul li a::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0); /* Hidden by default */
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #4f46e5; /* Premium Indigo Accent */
-    transform-origin: bottom center; /* Expands outwards from the middle */
-    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Active hover state triggers */
-li:hover a {
-    color: #4f46e5; /* Changes text to Indigo */
-}
-
-li:hover a::after {
-    transform: scaleX(1); /* Smoothly slides the underline out */
+/* Accent shift to soft blue capsule pill on hover/active */
+ul li a:hover {
+    color: #4f46e5; 
+    background-color: #eff6ff; 
 }
 
 /* ==========================================
@@ -114,69 +130,119 @@ li:hover a::after {
 .social-icons {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 18px;
 }
 
 .social-icons a {
     text-decoration: none;
     font-size: 18px;
-    color: #64748b;
+    color: #0f172a; 
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Accent shift & subtle bounce lift on hover */
 .social-icons a:hover {
-    transform: translateY(-3px);
-    color: black;
+    transform: translateY(-2px);
+    color: #4f46e5;
 }
 
 /* ==========================================
    5. HERO SECTION
    ========================================== */
 #hero {
-    flex: 1; /* Claims remaining vertical viewport space */
+    min-height: 80vh; 
     display: flex;
     justify-content: center;
     text-align: center;
     align-items: center;
     flex-direction: column;
-    padding: 40px 20px;
-}
-
-h1 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    line-height: 1.15;
-    color: #0f172a; /* Ultra-dark slate for strong crisp text */
-    letter-spacing: -1px;
+    padding: 60px 20px;
 }
 
 .hero-content {
     text-align: center;
-    max-width: 750px;
+    max-width: 800px;
     margin-bottom: 24px;
 }
 
+h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #0f172a; 
+    letter-spacing: -1.5px;
+}
+
+/* Text color gradient mask for main homepage heading */
+#hero .typing-text {
+    background: linear-gradient(135deg, #3b82f6 0%, #a855f7 100%);
+    -webkit-background-clip: text;
+    background-clip: text; /* Standard implementation - fixes text invisibility */
+    -webkit-text-fill-color: transparent;
+}
+
+/* Home Page Sub-headline layout title string */
 .hero-content h2 {
-    font-size: 20px;
-    font-weight: 500;
+    font-size: 22px;
+    font-weight: 700;
     line-height: 1.5;
-    color: #4f46e5; /* Highlights your title in clean indigo */
-    margin-top: 16px;
+    background: linear-gradient(135deg, #3b82f6 0%, #d946ef 100%);
+    -webkit-background-clip: text;
+    background-clip: text; /* Standard implementation - fixes text invisibility */
+    -webkit-text-fill-color: transparent;
+    margin-top: 20px;
 }
 
 #hero p {
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 400;
-    line-height: 1.6;
-    color: #475569; /* Balanced slate gray reading layout text */
-    max-width: 580px;
+    line-height: 1.7;
+    color: #64748b; 
+    max-width: 620px;
     width: 100%;
-    margin: 14px auto 0;
+    margin: 16px auto 0;
 }
 
 /* ==========================================
-   6. TYPING ANIMATION (EXACTLY 19 CHARS)
+   6. ABOUT SECTION (Refactored for Single Page)
+   ========================================== */
+#about {
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.about-content {
+    max-width: 800px;
+    margin-bottom: 32px;
+}
+
+/* Text color gradient mask specifically for About section heading */
+#about h2 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -1.5px;
+    background: linear-gradient(135deg, #0f172a 30%, #a855f7 100%);
+    -webkit-background-clip: text;
+    background-clip: text; /* Standard implementation - fixes text invisibility */
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 16px;
+}
+
+#about p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #64748b; 
+    max-width: 620px;
+    width: 100%;
+    margin: 16px auto 0;
+}
+
+/* ==========================================
+   7. TYPING CURSOR OVERRIDE
    ========================================== */
 .typing-container {
     display: inline-block;
@@ -187,9 +253,8 @@ h1 {
     overflow: hidden;
     white-space: nowrap;
     font-family: "Inter", sans-serif;
-    border-right: 3px solid #4f46e5; /* Indigo cursor match */
+    border-right: 3px solid #a855f7; 
     
-    /* Perfect letter step count calculation for "Hi, I'm Zain Masood" */
     animation: 
       typing 2.5s steps(19) forwards, 
       blink-cursor 0.75s step-end infinite;
@@ -202,65 +267,156 @@ h1 {
 
 @keyframes blink-cursor {
     from, to { border-color: transparent; }
-    50% { border-color: #4f46e5; }
+    50% { border-color: #a855f7; }
 }
 
 /* ==========================================
-   7. PREMIUM BUTTON HIERARCHY & FOOTER
+   8. HIGH END PILL BUTTON HIERARCHY
    ========================================== */
 #btns {
     display: flex;
     justify-content: center;
     gap: 16px;
-    margin-top: 24px;
+    margin-top: 32px;
 }
 
 .btn {
     display: inline-block;
-    padding: 12px 26px;
+    padding: 14px 32px;
     font-size: 15px;
     font-weight: 600;
     text-decoration: none;
-    border-radius: 8px; /* Balanced modern soft-rounded corners */
+    border-radius: 50px; 
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Prominent Slate Primary Button */
+/* Dark Primary Button */
 .btn-certificate {
-     background-color: #0f172a;
+     background-color: #030712;
      color: #ffffff;
-     border: 1px solid #0f172a;
-     box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+     border: 1px solid #030712;
+     box-shadow: 0 10px 25px -5px rgba(3, 7, 18, 0.15);
 }
 
 .btn-certificate:hover {
-    background-color: #1e293b;
-    border-color: #1e293b;
+    background-color: #1f2937;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.2);
+    box-shadow: 0 20px 30px -10px rgba(3, 7, 18, 0.25);
 }
 
-/* Premium Transparent Ghost Button */
+/* Clean White Floating Secondary Button */
 .btn-journey {
-    color: #475569;
-    background-color: transparent;
-    border: 1px solid #cbd5e1; /* Subtle clean gray outline */
+    color: #0f172a;
+    background-color: #ffffff;
+    border: 1px solid #f1f5f9; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
 }
 
 .btn-journey:hover {
-    color: #0f172a;
-    background-color: #f1f5f9;
-    border-color: #94a3b8;
+    background-color: #f8fafc;
+    border-color: #e2e8f0;
     transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
 }
 
-/* Soft, out-of-the-way minimalist footer positioned at absolute base */
+/* ==========================================
+   9. TECH STACK GRID STYLING
+   ========================================== */
+/* ==========================================
+   9. TECH STACK HORIZONTAL ROW STYLING
+   ========================================== */
+.logo-container {
+    display: flex;
+    flex-direction: row; /* Arranges the cards side-by-side in a line */
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap; /* Prevents cards from dropping to a second line */
+    gap: 16px; /* Optimized spacing to keep them on one line */
+    width: 100%;
+    max-width: 950px;
+    margin: 30px auto 60px; 
+    padding: 0 20px;
+    overflow-x: auto; /* Adds a clean swipe scroll if viewed on tiny mobile screens */
+}
+
+/* Vertical stack card structure */
+.logo-box {
+    background-color: #ffffff;
+    border: 1px solid #f1f5f9;
+    padding: 16px 20px; /* Slimmer padding to optimize horizontal space */
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column; /* Icon on top, name at bottom */
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Gap between logo and its text label */
+    flex: 1; /* Makes all boxes distribute equal width along the line */
+    min-width: 100px; /* Prevents them from squishing too small */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo-box i {
+    font-size: 32px;
+    transition: transform 0.3s ease;
+}
+
+/* Label styling centered underneath */
+.logo-box span {
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+    text-align: center;
+    white-space: nowrap; /* Prevents text names from breaking onto two lines */
+}
+
+/* Elevation effect on hover */
+.logo-box:hover {
+    transform: translateY(-4px);
+    border-color: #e2e8f0;
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.05);
+}
+
+.logo-box:hover span {
+    color: #0f172a;
+}
+
+/* Icon Brand Colors */
+.html5 { color: #ea580c; }
+.css3 { color: #2563eb; }
+.javascript { color: #eab308; }
+.git { color: #f97316; }
+.github { color: #0f172a; }
+.vscode { color: #0284c7; }
+
+.logo-box i {
+    font-size: 32px;
+    transition: transform 0.3s ease;
+}
+
+/* Elevation effect on hover */
+.logo-box:hover {
+    transform: translateY(-5px);
+    border-color: #e2e8f0;
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
+}
+
+/* Icon Brand Colors */
+.html5 { color: #ea580c; }
+.css3 { color: #2563eb; }
+.javascript { color: #eab308; }
+.git { color: #f97316; }
+.github { color: #0f172a; }
+.vscode { color: #0284c7; }
+
+/* ==========================================
+   10. MINIMALIST BASE FOOTER   ========================================== */
 footer {
     display: flex;
     justify-content: center;
     text-align: center;
-    padding: 24px 0;
+    padding: 32px 0;
     font-size: 13px;
     color: #94a3b8;
-    border-top: 1px solid rgba(0, 0, 0, 0.03);
+    margin-top: auto; 
 }
