@@ -421,13 +421,14 @@ h1 {
 /* Bento Header Layout */
 .cert-hero-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     gap: 40px;
     margin-bottom: 40px;
     width: 100%;
+    max-width: 1200px;
+    padding-left: 20px;
 }
-
 .cert-hero-left {
     flex: 1.3;
     text-align: left;
@@ -529,6 +530,7 @@ h1 {
     gap: 10px;
     margin-bottom: 30px;
     flex-wrap: wrap;
+    margin-left: 20px;
 }
 
 .filter-btn {
@@ -722,25 +724,6 @@ h1 {
     background-color: #1f2937;
 }
 
-/* Dubai One Million Prompters Custom Brand Colors */
-.dubai-color {
-    color: #0f172a; /* Sophisticated dark slate icon */
-}
-
-.dubai-bg {
-    background-color: #f1f5f9; /* Standard light container fill */
-}
-
-/* Optional soft tinted background shift on hover */
-.cert-card:hover .dubai-bg {
-    background-color: #e2e8f0; 
-}
-
-/* Custom Tag style for your AI category badge */
-.tag-ai {
-    background-color: #fae8ff; /* Beautiful light purple/pink background tint */
-    color: #a855f7; /* Matching purple text */
-}
 
 
 /* ==========================================
