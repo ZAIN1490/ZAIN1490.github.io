@@ -617,6 +617,253 @@ h1 {
     align-self: flex-start;
     margin-bottom: 10px;
 }
+:root {
+  --primary-purple: #6366f1;
+  --bg-light: #f8fafc;
+  --text-dark: #1e293b;
+  --text-muted: #64748b;
+  --card-bg: #ffffff;
+  --border-color: #f1f5f9;
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 50px;
+}
+
+.projects-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Header Grid Matching Screenshot_20260706_082109.jpg */
+.projects-header {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.badge {
+  background: #eff6ff;
+  color: var(--primary-purple);
+  padding: 6px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.projects-header h1 {
+  font-size: 2.5rem;
+  color: var(--text-dark);
+  margin: 16px 0;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.projects-header h1 .highlight {
+  color: var(--primary-purple);
+}
+
+.projects-header p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  max-width: 500px;
+}
+
+/* Stat Side Card */
+.header-right-card {
+  background: linear-gradient(135deg, #eef2ff 0%, #f5f3ff 100%);
+  border: 1px solid rgba(99, 102, 241, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  text-align: center;
+}
+
+.card-icon {
+  background: #ffffff;
+  color: var(--primary-purple);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+}
+
+.header-right-card h2 {
+  font-size: 2.2rem;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.card-title {
+  font-weight: 700;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+
+.card-subtitle {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+/* Project Cards Row Layout */
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.project-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  display: grid;
+  grid-template-columns: 1.1fr 1fr; /* Keeps the split look */
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  align-items: center; /* Vertically centers the image area with the content area */
+}
+
+.project-image {
+  background: #f8fafc; /* Matches your light gray background */
+  padding: 24px;       /* Gives it that clean, professional breathing room */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Remove the fixed height here so it doesn't squash the image */
+  border-right: 1px solid var(--border-color);
+}
+
+.project-image img {
+  width: 100%;          /* Spans across the container width naturally */
+  height: auto;         /* Scales the height perfectly based on the image's original ratio */
+  object-fit: contain;  /* Guarantees 0% cropping */
+  border-radius: 6px;   /* Subtle rounded corners like a real app window */
+  border: 1px solid rgba(0, 0, 0, 0.05); /* Very light border around the screenshot */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04); /* Soft shadow just like the inspiration */
+  display: block;
+}
+.project-content {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.project-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  align-self: flex-start;
+  margin-bottom: 12px;
+}
+
+.project-badge.full-stack { background: #eff6ff; color: #3b82f6; }
+.project-badge.web-dev { background: #f0fdf4; color: #22c55e; }
+
+.project-content h3 {
+  font-size: 1.5rem;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.project-desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+/* Tech Stack Items */
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.tech-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.tech-item i {
+  color: #64748b;
+}
+
+/* Link Action Buttons Split Line styling */
+.project-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--border-color);
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.project-links a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--text-dark);
+  transition: color 0.2s;
+}
+
+.project-links a:hover {
+  color: var(--primary-purple);
+}
+
+.project-links .btn-live {
+  border-right: 1px solid var(--border-color);
+}
+
+/* Floating Bottom View More Button */
+.view-more-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.btn-view-more {
+  background: var(--primary-purple);
+  color: #ffffff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-view-more:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.4);
+}
+
+
 
 .tag-web { background-color: #eff6ff; color: #3b82f6; }
 .tag-prog { background-color: #f0fdf4; color: #22c55e; }
