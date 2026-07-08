@@ -1236,33 +1236,7 @@ h1 {
 
 }
 
-@media(max-width:768px){
 
-.contact-section{
-
-width:92%;
-
-}
-
-.contact-header h2{
-
-font-size:2.2rem;
-
-}
-
-.contact-card{
-
-grid-template-columns:1fr;
-
-}
-
-.contact-buttons{
-
-flex-direction:column;
-
-}
-
-}
 /*=========================
   DIGITAL WIZARD CARD
 =========================*/
