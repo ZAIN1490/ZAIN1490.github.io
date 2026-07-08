@@ -1,4 +1,4 @@
-/* ==========================================
+K9/* ==========================================
    1. GLOBAL RESETS & BASE STYLES
    ========================================== */
 * {
@@ -989,3 +989,67 @@ footer {
     color: #94a3b8;
     margin-top: auto; 
 } 
+
+
+
+/* ==========================================
+   12. RESPONSIVE MEDIA QUERIES (Mobile & Tablet)
+   ========================================== */
+
+/* For Tablets and Small Screens */
+@media (max-width: 992px) {
+    .projects-header, 
+    .cert-hero-container {
+        grid-template-columns: 1fr; /* Stack the heading and stat cards vertically */
+        text-align: center;
+    }
+    
+    .cert-hero-left, .cert-hero-right {
+        text-align: center;
+        justify-content: center;
+    }
+
+    .project-card {
+        grid-template-columns: 1fr; /* Image stacks on top of text */
+    }
+
+    .project-image {
+        padding: 24px;
+    }
+
+    .certificates-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns instead of 3 */
+    }
+}
+
+/* For Mobile Devices */
+@media (max-width: 576px) {
+    .navbar {
+        border-radius: 24px; /* Shorter border radius for clean mobile look */
+        padding: 0 16px;
+    }
+
+    h1 {
+        font-size: 2.5rem; /* Shrink title text so it doesn't break onto 4 lines */
+    }
+
+    #about h2, .cert-title {
+        font-size: 2.2rem;
+    }
+
+    .certificates-grid {
+        grid-template-columns: 1fr; /* 1 single clean column layout for mobile */
+    }
+
+    .project-links {
+        grid-template-columns: 1fr; /* Stack live link and source code buttons */
+        gap: 12px;
+    }
+
+    .project-links .btn-live {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 12px;
+    }
+}
+
