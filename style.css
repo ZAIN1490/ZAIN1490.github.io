@@ -303,28 +303,28 @@ h1 {
 }
 
 /* Dark Primary Button */
-.btn-certificate {
+.btn-primary {
     background-color: #030712;
     color: #ffffff;
     border: 1px solid #030712;
     box-shadow: 0 10px 25px -5px rgba(3, 7, 18, 0.15);
 }
 
-.btn-certificate:hover {
+.btn-primary:hover {
     background-color: #1f2937;
     transform: translateY(-2px);
     box-shadow: 0 20px 30px -10px rgba(3, 7, 18, 0.25);
 }
 
 /* Clean White Floating Secondary Button */
-.btn-resume {
+.btn-secondary {
     color: #0f172a;
     background-color: #ffffff;
     border: 1px solid #f1f5f9;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
 }
 
-.btn-resume:hover {
+.btn-secondary:hover {
     background-color: #f8fafc;
     border-color: #e2e8f0;
     transform: translateY(-2px);
