@@ -80,7 +80,7 @@ body.no-scroll {
         right: -100%;
         width: 85%;
         max-width: 340px;
-        height: auto;                      /* CHANGED: Cuts off height dynamically */
+        height: 80vh;                      /* CHANGED: Cuts off height dynamically */
         background-color: #ffffff;
         flex-direction: column;
         align-items: flex-start;
