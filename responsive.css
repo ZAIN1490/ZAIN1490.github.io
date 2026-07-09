@@ -1,71 +1,180 @@
-@media (max-width:768px){
+/* ==========================================
+   MOBILE RESPONSIVE OVERRIDES (max-width: 768px)
+   ========================================== */
+@media screen and (max-width: 768px) {
 
-.nav-links{
+    /* 1. GLOBAL TYPOGRAPHY ADJUSTMENTS */
+    html {
+        scroll-padding-top: 90px;
+    }
 
-    position:fixed;
+    h1 {
+        font-size: 2.5rem !important;
+        letter-spacing: -1px;
+    }
 
-    top:90px;          /* below navbar */
-    left:0;
+    #hero .hero-content h2 {
+        font-size: 18px;
+        margin-top: 12px;
+    }
 
-    width:100%;
-    height:calc(100vh - 90px);
+    #hero p, #about p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
 
-    background:#ffffff;
+    /* 2. NAVBAR CONFIGURATION & HAMBURGER SHOWCASE */
+    .navbar-wrapper {
+        padding-top: 12px;
+        padding-bottom: 8px;
+    }
 
-    display:flex;
-    flex-direction:column;
+    .navbar {
+        width: 92%;
+        height: 60px;
+        padding: 0 20px;
+        border-radius: 30px;
+    }
 
-    align-items:center;
+    h2.nav-logo {
+        font-size: 20px;
+    }
 
-    padding:40px 25px;
+    .hamburger {
+        display: flex !important;
+    }
 
-    transform:translateX(100%);
-    transition:.35s ease;
+    /* Hide the standalone desktop social row from header container space */
+    .navbar > .social-icons {
+        display: none;
+    }
 
-    z-index:999;
+    /* 3. VERTICAL SLIDE-OUT DRAWER MENU */
+    ul.nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 340px;
+        height: 100vh;
+        background-color: #ffffff;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 100px 24px 40px;
+        gap: 0;
+        box-shadow: -10px 0 30px rgba(15, 23, 42, 0.05);
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1050;
+    }
 
-}
+    ul.nav-links.active {
+        right: 0;
+    }
 
-.nav-links.active{
+    /* Drawer Item UI Architecture matching your wireframe design */
+    ul.nav-links li {
+        width: 100%;
+        height: auto;
+        border-bottom: 1px solid #f1f5f9;
+    }
 
-    transform:translateX(0);
+    ul.nav-links li a {
+        width: 100%;
+        padding: 20px 8px;
+        font-size: 17px;
+        font-weight: 600;
+        color: #1e293b;
+        border-radius: 0;
+        background: transparent;
+        justify-content: flex-start;
+        gap: 14px;
+        position: relative;
+    }
 
-}
+    /* Target standard font-awesome icons to match design scale */
+    ul.nav-links li a i {
+        font-size: 18px;
+        color: #64748b;
+        width: 24px;
+        text-align: center;
+    }
 
-.nav-links li{
+    /* Right-facing chevron indicator injected via pure CSS */
+    ul.nav-links li a::after {
+        content: "\f105";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        right: 8px;
+        color: #94a3b8;
+        font-size: 14px;
+        transition: transform 0.2s ease;
+    }
 
-    width:100%;
-    max-width:350px;
+    ul.nav-links li a:hover {
+        color: #4f46e5;
+        background-color: #f8fafc;
+    }
+    
+    ul.nav-links li a:hover i,
+    ul.nav-links li a:hover::after {
+        color: #4f46e5;
+    }
 
-    list-style:none;
+    /* 4. HERO SECTION DESIGN BALANCING */
+    #hero {
+        min-height: auto;
+        padding: 70px 20px 40px;
+    }
 
-    margin-bottom:8px;
+    .hero-content {
+        margin-bottom: 16px;
+    }
 
-}
+    #btns {
+        flex-direction: column;
+        width: 100%;
+        max-width: 280px;
+        gap: 12px;
+        margin-top: 24px;
+    }
 
-.nav-links a{
+    .btn {
+        width: 100%;
+        text-align: center;
+        padding: 12px 24px;
+        font-size: 14px;
+    }
 
-    width:100%;
+    /* 5. ABOUT SECTION & TECH STACK OPTIMIZATION */
+    #about {
+        padding: 40px 20px;
+    }
 
-    display:flex;
-    align-items:center;
+    #about h2 {
+        font-size: 2.2rem !important;
+    }
 
-    gap:12px;
+    .logo-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        overflow-x: visible;
+        padding: 0;
+        margin: 30px auto 10px;
+    }
 
-    padding:16px 20px;
+    .logo-box {
+        min-width: 0;
+        padding: 12px 8px;
+    }
 
-    border-radius:14px;
+    .logo-box i {
+        font-size: 26px;
+    }
 
-    font-size:18px;
-    font-weight:600;
-
-    color:#0f172a;
-
-}
-
-.nav-links a:hover{
-
-    background:#f8fafc;
-    color:#4f46e5;
-
+    .logo-box span {
+        font-size: 11px;
+    }
 }
