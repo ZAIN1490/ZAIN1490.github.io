@@ -27,6 +27,7 @@
     .navbar-wrapper {
         padding-top: 12px;
         padding-bottom: 8px;
+        position: relative; /* Provides the anchor context for absolute styling */
     }
 
     .navbar {
@@ -56,14 +57,15 @@
         right: -100%;
         width: 85%;
         max-width: 340px;
-        height: 100vh;
+        height: auto;                      /* CHANGED: Cuts off height dynamically */
         background-color: #ffffff;
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        padding: 100px 24px 40px;
+        padding: 100px 24px 90px;          /* CHANGED: Custom bottom padding accommodates icons cleanly */
         gap: 0;
-        box-shadow: -10px 0 30px rgba(15, 23, 42, 0.05);
+        border-radius: 0 0 24px 24px;      /* ADDED: Smooth rounding right at your red line marker */
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 1050;
     }
@@ -116,13 +118,43 @@
         color: #4f46e5;
         background-color: #f8fafc;
     }
-    
+
     ul.nav-links li a:hover i,
     ul.nav-links li a:hover::after {
         color: #4f46e5;
     }
 
-    /* 4. HERO SECTION DESIGN BALANCING */
+    /* 4. SOCIAL ICONS - LOCATED IN THE BLUE SHADED ZONE */
+    .navbar-wrapper .social-icons {
+        position: fixed;
+        top: 310px;                        /* Fixed position right in your blue box zone */
+        right: -100%;                      /* Matches nav-links off-screen behavior */
+        width: 85%;
+        max-width: 340px;
+        display: flex;
+        justify-content: flex-start;       /* Aligns left along with text elements */
+        padding-left: 32px;                /* Indents cleanly inline with your item text line */
+        gap: 20px;
+        z-index: 1060;                     /* Layers beautifully on top of the menu surface background */
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Slides out in perfect tracking synchronization with the menu page reveal */
+    .navbar:has(.nav-links.active) .social-icons {
+        right: 0;
+    }
+
+    .navbar-wrapper .social-icons a {
+        font-size: 20px;
+        color: #475569;
+        transition: color 0.2s ease;
+    }
+
+    .navbar-wrapper .social-icons a:hover {
+        color: #4f46e5;
+    }
+
+    /* 5. HERO SECTION DESIGN BALANCING */
     #hero {
         min-height: auto;
         padding: 70px 20px 40px;
@@ -147,7 +179,7 @@
         font-size: 14px;
     }
 
-    /* 5. ABOUT SECTION & TECH STACK OPTIMIZATION */
+    /* 6. ABOUT SECTION & TECH STACK OPTIMIZATION */
     #about {
         padding: 40px 20px;
     }
