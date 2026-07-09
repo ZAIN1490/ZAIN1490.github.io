@@ -132,7 +132,7 @@
         width: 85%;
         max-width: 340px;
         display: flex;
-        justify-content: flex-start;       /* Aligns left along with text elements */
+        justify-content: center;       
         padding-left: 32px;                /* Indents cleanly inline with your item text line */
         gap: 20px;
         z-index: 1060;                     /* Layers beautifully on top of the menu surface background */
