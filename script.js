@@ -6,11 +6,11 @@ hamburger.addEventListener("click", () => {
     hamburger.classList.toggle("active");
     navLinks.classList.toggle("active");
     
-    // Lock background scrolling completely when menu is open
+    // Completely freeze the background website scroll
     body.classList.toggle("no-scroll");
 });
 
-// Close menu when a navigation link is clicked
+// Automatically close the page overlay when clicking any link
 document.querySelectorAll(".nav-links a").forEach(link => {
     link.addEventListener("click", () => {
         hamburger.classList.remove("active");
