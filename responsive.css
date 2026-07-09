@@ -3,7 +3,7 @@
    ========================================== */
 @media screen and (max-width: 768px) {
 
-    /* Lock everything behind the menu overlay */
+    /* Freezes background page activity completely */
     body.no-scroll {
         overflow: hidden;
     }
@@ -28,7 +28,7 @@
         line-height: 1.6;
     }
 
-    /* 2. NAVBAR HEADER & HAMBURGER POSITIONING */
+    /* 2. NAVBAR NAVIGATION HEADER & HAMBURGER Z-INDEX */
     .navbar-wrapper {
         padding-top: 12px;
         padding-bottom: 8px;
@@ -45,39 +45,36 @@
         font-size: 20px;
     }
 
-    /* Keep hamburger button layered explicitly above the white page */
+    /* Keep the hamburger button layered safely above the new page takeover */
     .hamburger {
         display: flex !important;
         position: relative;
-        z-index: 2000 !important; 
+        z-index: 9999 !important; 
     }
 
-    /* 3. 100% FULL-SCREEN WHITE OVERLAY PAGE */
+    /* 3. 100% FULL SCREEN WHITE PAGE OVERLAY SYSTEM */
     ul.nav-links {
         position: fixed;
         top: 0;
-        left: 0;
-        width: 100vw;       /* Takes full viewport width */
-        height: 100vh;      /* Takes full viewport height */
-        background-color: #ffffff !important; /* Pure white page takeover */
+        left: -100%;        /* Hidden completely off-screen by default */
+        width: 100vw;       /* Strict viewport width screen match */
+        height: 100vh;      /* Strict viewport height screen match */
+        background-color: #ffffff !important; /* Forces clean full white takeover page */
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        padding: 120px 32px 0px; /* Shifts content down below the header line */
+        padding: 130px 40px 0px; /* Pads down beautifully below the top header zone */
         gap: 0;
-        
-        /* Starts off-screen and moves completely visible */
-        transform: translateY(-100%);
-        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 1500;
+        transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 9000;      /* Behind hamburger button, but completely over the body */
     }
 
-    /* Slides the whole white page into position */
+    /* Slides the whole separate page into view */
     ul.nav-links.active {
-        transform: translateY(0);
+        left: 0;
     }
 
-    /* Menu Link rows mapping exactly to your image */
+    /* Standardized row layout structure for your 3 links */
     ul.nav-links li {
         width: 100%;
         height: auto;
@@ -104,7 +101,7 @@
         text-align: center;
     }
 
-    /* Injects the right chevron side arrow dynamically */
+    /* Adds your signature right chevron side indicator arrows */
     ul.nav-links li a::after {
         content: "\f105";
         font-family: "Font Awesome 6 Free";
@@ -118,25 +115,22 @@
     /* 4. PINNED BOTTOM SOCIAL ROW CONFIGURATION */
     .navbar-wrapper .social-icons {
         position: fixed;
-        bottom: 45px;       /* Anchors icons exactly to screen base line */
-        left: 0;
+        bottom: 50px;       /* Anchors icons exactly to screen base view line */
+        left: -100%;        /* Hidden in sync with the white overlay container */
         width: 100vw;
         justify-content: flex-start;
-        padding: 0 40px;
+        padding: 0 48px;
         gap: 16px;
-        z-index: 1600;      /* Places icons perfectly on top of white backdrop */
-        
-        /* Synchronized sliding motion with the main menu background takeover */
-        transform: translateY(-100vh);
-        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 9500;      /* Layers elements safely over the white page overlay */
+        transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Brings social blocks into play alongside active overlay display */
+    /* Displays social links simultaneously alongside active overlay changes */
     .navbar:has(.nav-links.active) .social-icons {
-        transform: translateY(0);
+        left: 0;
     }
 
-    /* Styling social elements to look like white cards from design */
+    /* Card styling for modern container display frames */
     .navbar-wrapper .social-icons a {
         background-color: #ffffff;
         border: 1px solid #e2e8f0;
@@ -151,12 +145,12 @@
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
     }
 
-    /* Injects "Connect with me" subtitle text string */
+    /* Injects "Connect with me" subtitle row heading dynamically above cards */
     .navbar-wrapper .social-icons::before {
         content: "Connect with me";
         position: absolute;
         top: -32px;
-        left: 40px;
+        left: 48px;
         font-size: 14px;
         font-weight: 600;
         color: #475569;
