@@ -119,7 +119,7 @@ ul li a:hover {
     color: #4f46e5;
     background-color: #eff6ff;
 }
-body.menu-open {
+body.no-scroll {
     overflow: hidden;
 }
 /* ==========================================
