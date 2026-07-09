@@ -1,4 +1,4 @@
-/* ==========================================
+9/* ==========================================
    MOBILE RESPONSIVE OVERRIDES (max-width: 768px)
    ========================================== */
 @media screen and (max-width: 768px) {
@@ -146,8 +146,10 @@ body.no-scroll {
     ul.nav-links li a:hover::after {
         color: #4f46e5;
     }
-ul.nav-links li:last-child {
-    margin-bottom: 24px; /* space before social icons */
+
+.navbar-wrapper .social-icons {
+    top: 360px;   /* was 310px — pushes icons down for more gap */
+    /* everything else stays the same */
 }
 
     /* 4. SOCIAL ICONS - LOCATED IN THE BLUE SHADED ZONE */
