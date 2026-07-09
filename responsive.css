@@ -3,11 +3,31 @@
    ========================================== */
 @media screen and (max-width: 768px) {
 
-    /* 1. NAVBAR CONTAINER ADJUSTMENTS */
+    /* 1. GLOBAL TYPOGRAPHY ADJUSTMENTS */
+    html {
+        scroll-padding-top: 90px;
+    }
+
+    h1 {
+        font-size: 2.5rem !important;
+        letter-spacing: -1px;
+    }
+
+    #hero .hero-content h2 {
+        font-size: 18px;
+        margin-top: 12px;
+    }
+
+    #hero p, #about p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    /* 2. NAVBAR CONFIGURATION & HAMBURGER SHOWCASE */
     .navbar-wrapper {
         padding-top: 12px;
         padding-bottom: 8px;
-        position: relative; /* Context for our menu positioning */
+        position: relative;
     }
 
     .navbar {
@@ -17,46 +37,45 @@
         border-radius: 30px;
     }
 
+    h2.nav-logo {
+        font-size: 20px;
+    }
+
     .hamburger {
         display: flex !important;
     }
 
-    /* Hide desktop version of social icons */
+    /* Hide the standalone desktop social row from header container space */
     .navbar > .social-icons {
         display: none;
     }
 
-    /* 2. COMPACT FLOATING DRAWER MENU */
+    /* 3. VERTICAL SLIDE-OUT DRAWER MENU */
     ul.nav-links {
         position: fixed;
-        top: 90px;             /* Positioned cleanly below the navbar */
-        right: -100%;          /* Hidden by default */
+        top: 60px;             /* CONNECTED TO NAVBAR: No space between them anymore */
+        right: -100%;
         width: 85%;
         max-width: 340px;
-        
-        /* Layout logic to contain both lists and socials cleanly */
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        
-        /* Tall height configuration with ample bottom spacing */
-        height: auto;          
-        padding: 24px 24px 110px; 
-        gap: 0;
-        
+        height: auto;          /* Adapts cleanly to your items */
         background-color: #ffffff;
-        border-radius: 24px;   /* Clean rounded card styling */
-        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        /* Increased bottom padding to 110px to give the menu box more height */
+        padding: 40px 24px 110px; 
+        gap: 0;
+        border-radius: 0 0 24px 24px; /* Flattens top edges to blend right into the navbar */
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 1050;
     }
 
     ul.nav-links.active {
-        right: 4%;             /* Slides completely into view */
+        right: 4%;             /* aligns with the navbar layout side */
     }
 
-    /* Link item rows structure */
+    /* Drawer Item UI Architecture */
     ul.nav-links li {
         width: 100%;
         height: auto;
@@ -65,7 +84,7 @@
 
     ul.nav-links li a {
         width: 100%;
-        padding: 18px 8px;
+        padding: 20px 8px;
         font-size: 17px;
         font-weight: 600;
         color: #1e293b;
@@ -83,7 +102,7 @@
         text-align: center;
     }
 
-    /* Right chevron arrow indicators */
+    /* Right-facing chevron indicator injected via pure CSS */
     ul.nav-links li a::after {
         content: "\f105";
         font-family: "Font Awesome 6 Free";
@@ -92,42 +111,93 @@
         right: 8px;
         color: #94a3b8;
         font-size: 14px;
+        transition: transform 0.2s ease;
     }
 
-    /* 3. SOCIAL ICONS - PUSHED TO THE SIDE & PERFECTLY EMBEDDED */
+    ul.nav-links li a:hover {
+        color: #4f46e5;
+        background-color: #f8fafc;
+    }
+    
+    ul.nav-links li a:hover i,
+    ul.nav-links li a:hover::after {
+        color: #4f46e5;
+    }
+
+    /* 4. SOCIAL ICONS INSIDE THE DROPDOWN */
     .navbar-wrapper .social-icons {
-        position: fixed;
-        
-        /* Dynamic anchoring logic based directly on the menu card container */
-        top: auto;
-        bottom: auto; 
-        margin-top: 250px;     /* Forces social icons safely down below your 3 links */
-        
-        right: -100%;
-        width: 85%;
-        max-width: 340px;
-        
+        position: absolute;    /* Absolute to ul parent element container context */
+        bottom: 35px;          /* Locked near the bottom edge of the white box */
+        left: 32px;            /* Shifted right so they sit directly on the text line */
         display: flex;
-        justify-content: flex-start; /* Aligns items perfectly to the left side */
-        padding-left: 36px;          /* Perfectly aligns under the link text icons line */
-        gap: 22px;
-        
-        z-index: 1060;         
-        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    /* Slides side-by-side alongside your main links navigation box */
-    .navbar:has(.nav-links.active) .social-icons 
-        right: 4%;
+        justify-content: flex-start; /* Kept to the left side */
+        gap: 20px;
+        z-index: 1060;
     }
 
     .navbar-wrapper .social-icons a {
-        font-size: 22px;
+        font-size: 20px;
         color: #475569;
         transition: color 0.2s ease;
     }
 
     .navbar-wrapper .social-icons a:hover {
         color: #4f46e5;
+    }
+
+    /* 5. HERO SECTION DESIGN BALANCING */
+    #hero {
+        min-height: auto;
+        padding: 70px 20px 40px;
+    }
+
+    .hero-content {
+        margin-bottom: 16px;
+    }
+
+    #btns {
+        flex-direction: column;
+        width: 100%;
+        max-width: 280px;
+        gap: 12px;
+        margin-top: 24px;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+
+    /* 6. ABOUT SECTION & TECH STACK OPTIMIZATION */
+    #about {
+        padding: 40px 20px;
+    }
+
+    #about h2 {
+        font-size: 2.2rem !important;
+    }
+
+    .logo-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        overflow-x: visible;
+        padding: 0;
+        margin: 30px auto 10px;
+    }
+
+    .logo-box {
+        min-width: 0;
+        padding: 12px 8px;
+    }
+
+    .logo-box i {
+        font-size: 26px;
+    }
+
+    .logo-box span {
+        font-size: 11px;
     }
 }
