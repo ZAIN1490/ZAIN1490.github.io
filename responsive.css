@@ -23,7 +23,7 @@
         line-height: 1.6;
     }
 
-    /* 2. NAVBAR CONFIGURATION & HAMBURGER SHOWCASE */
+    /* 2. NAVBAR CONFIGURATION */
     .navbar-wrapper {
         padding-top: 12px;
         padding-bottom: 8px;
@@ -34,6 +34,7 @@
         height: 60px;
         padding: 0 20px;
         border-radius: 30px;
+        position: relative; /* Context for menu positioning */
     }
 
     h2.nav-logo {
@@ -44,35 +45,36 @@
         display: flex !important;
     }
 
-    /* Hide the standalone desktop social row from header container space */
+    /* Hide desktop navbar layout for socials */
     .navbar > .social-icons {
         display: none;
     }
 
-    /* 3. VERTICAL SLIDE-OUT DRAWER MENU */
+    /* 3. COMPACT FLOATING DRAWER MENU (Low Height) */
     ul.nav-links {
         position: fixed;
-        top: 0;
+        top: 90px;             /* Floats cleanly below the navbar */
         right: -100%;
         width: 85%;
         max-width: 340px;
-        height: 100vh;
+        height: auto;          /* LOW HEIGHT: Adjusts dynamically to content */
         background-color: #ffffff;
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        padding: 100px 24px 40px;
+        padding: 24px 24px 90px; /* Extra bottom padding leaves room for social icons */
         gap: 0;
-        box-shadow: -10px 0 30px rgba(15, 23, 42, 0.05);
+        border-radius: 24px;   /* Clean premium rounded card look */
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 1050;
     }
 
     ul.nav-links.active {
-        right: 0;
+        right: 4%;             /* Snaps inline with page margins */
     }
 
-    /* Drawer Item UI Architecture matching your wireframe design */
+    /* Drawer Item Layout */
     ul.nav-links li {
         width: 100%;
         height: auto;
@@ -81,7 +83,7 @@
 
     ul.nav-links li a {
         width: 100%;
-        padding: 20px 8px;
+        padding: 16px 8px;
         font-size: 17px;
         font-weight: 600;
         color: #1e293b;
@@ -92,7 +94,6 @@
         position: relative;
     }
 
-    /* Target standard font-awesome icons to match design scale */
     ul.nav-links li a i {
         font-size: 18px;
         color: #64748b;
@@ -100,7 +101,7 @@
         text-align: center;
     }
 
-    /* Right-facing chevron indicator injected via pure CSS */
+    /* Right-facing chevron indicator */
     ul.nav-links li a::after {
         content: "\f105";
         font-family: "Font Awesome 6 Free";
@@ -109,20 +110,43 @@
         right: 8px;
         color: #94a3b8;
         font-size: 14px;
-        transition: transform 0.2s ease;
     }
 
     ul.nav-links li a:hover {
         color: #4f46e5;
         background-color: #f8fafc;
     }
-    
-    ul.nav-links li a:hover i,
-    ul.nav-links li a:hover::after {
+
+    /* 4. SOCIAL ICONS POSITIONED INSIDE THE DROPDOWN */
+    .navbar-wrapper .social-icons {
+        position: fixed;
+        top: 310px;            /* Aligns exactly near the bottom edge of the short menu */
+        right: -100%;
+        width: 85%;
+        max-width: 340px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        z-index: 1060;         /* Sits layered seamlessly inside the white box */
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Slides simultaneously together with the links box container */
+    .navbar:has(.nav-links.active) .social-icons {
+        right: 4%;
+    }
+
+    .navbar-wrapper .social-icons a {
+        font-size: 20px;
+        color: #475569;
+        transition: color 0.2s ease;
+    }
+
+    .navbar-wrapper .social-icons a:hover {
         color: #4f46e5;
     }
 
-    /* 4. HERO SECTION DESIGN BALANCING */
+    /* 5. HERO SECTION DESIGN BALANCING */
     #hero {
         min-height: auto;
         padding: 70px 20px 40px;
@@ -147,7 +171,7 @@
         font-size: 14px;
     }
 
-    /* 5. ABOUT SECTION & TECH STACK OPTIMIZATION */
+    /* 6. ABOUT SECTION & TECH STACK OPTIMIZATION */
     #about {
         padding: 40px 20px;
     }
