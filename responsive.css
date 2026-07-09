@@ -27,7 +27,6 @@
     .navbar-wrapper {
         padding-top: 12px;
         padding-bottom: 8px;
-        position: relative;
     }
 
     .navbar {
@@ -53,29 +52,27 @@
     /* 3. VERTICAL SLIDE-OUT DRAWER MENU */
     ul.nav-links {
         position: fixed;
-        top: 60px;             /* CONNECTED TO NAVBAR: No space between them anymore */
+        top: 0;
         right: -100%;
         width: 85%;
         max-width: 340px;
-        height: auto;          /* Adapts cleanly to your items */
+        height: 100vh;
         background-color: #ffffff;
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        /* Increased bottom padding to 110px to give the menu box more height */
-        padding: 40px 24px 110px; 
+        padding: 100px 24px 40px;
         gap: 0;
-        border-radius: 0 0 24px 24px; /* Flattens top edges to blend right into the navbar */
-        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+        box-shadow: -10px 0 30px rgba(15, 23, 42, 0.05);
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 1050;
     }
 
     ul.nav-links.active {
-        right: 4%;             /* aligns with the navbar layout side */
+        right: 0;
     }
 
-    /* Drawer Item UI Architecture */
+    /* Drawer Item UI Architecture matching your wireframe design */
     ul.nav-links li {
         width: 100%;
         height: auto;
@@ -95,6 +92,7 @@
         position: relative;
     }
 
+    /* Target standard font-awesome icons to match design scale */
     ul.nav-links li a i {
         font-size: 18px;
         color: #64748b;
@@ -124,28 +122,7 @@
         color: #4f46e5;
     }
 
-    /* 4. SOCIAL ICONS INSIDE THE DROPDOWN */
-    .navbar-wrapper .social-icons {
-        position: absolute;    /* Absolute to ul parent element container context */
-        bottom: 35px;          /* Locked near the bottom edge of the white box */
-        left: 32px;            /* Shifted right so they sit directly on the text line */
-        display: flex;
-        justify-content: flex-start; /* Kept to the left side */
-        gap: 20px;
-        z-index: 1060;
-    }
-
-    .navbar-wrapper .social-icons a {
-        font-size: 20px;
-        color: #475569;
-        transition: color 0.2s ease;
-    }
-
-    .navbar-wrapper .social-icons a:hover {
-        color: #4f46e5;
-    }
-
-    /* 5. HERO SECTION DESIGN BALANCING */
+    /* 4. HERO SECTION DESIGN BALANCING */
     #hero {
         min-height: auto;
         padding: 70px 20px 40px;
@@ -170,7 +147,7 @@
         font-size: 14px;
     }
 
-    /* 6. ABOUT SECTION & TECH STACK OPTIMIZATION */
+    /* 5. ABOUT SECTION & TECH STACK OPTIMIZATION */
     #about {
         padding: 40px 20px;
     }
