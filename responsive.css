@@ -146,6 +146,9 @@ body.no-scroll {
     ul.nav-links li a:hover::after {
         color: #4f46e5;
     }
+ul.nav-links li:last-child {
+    margin-bottom: 24px; /* space before social icons */
+}
 
     /* 4. SOCIAL ICONS - LOCATED IN THE BLUE SHADED ZONE */
     .navbar-wrapper .social-icons {
