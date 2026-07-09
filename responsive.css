@@ -51,7 +51,10 @@ body.no-scroll {
     .hamburger {
         display: flex !important;
     }
-
+.navbar-wrapper .social-icons {
+    top: 360px;   /* was 310px — pushes icons down for more gap */
+    /* everything else stays the same */
+}
     /* Hide the standalone desktop social row from header container space */
     .navbar > .social-icons {
         display: none;
