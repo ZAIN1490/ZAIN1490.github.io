@@ -1,9 +1,20 @@
-const hamburger=document.querySelector(".hamburger");
-const navLinks=document.querySelector(".nav-links");
+const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".nav-links");
+const body = document.body;
 
-hamburger.addEventListener("click",()=>{
-
+hamburger.addEventListener("click", () => {
     hamburger.classList.toggle("active");
     navLinks.classList.toggle("active");
+    
+    // Toggle body scroll locking when the menu is active
+    body.classList.toggle("no-scroll");
+});
 
+// Close menu when a link is clicked
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        navLinks.classList.remove("active");
+        body.classList.remove("no-scroll");
+    });
 });
