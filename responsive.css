@@ -49,18 +49,18 @@
         display: flex !important;
     }
 
-    /* 3. FULL-PAGE MENU DRAWER SETUP */
+    /* 3. FULL-PAGE NAVIGATION LINKS MENU */
     ul.nav-links {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 100%; /* Changed to 100% for full-screen layout */
-        height: 100vh;
+        width: 100%;       /* Takes full screen width */
+        height: 100vh;     /* Takes full screen height */
         background-color: #ffffff;
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        padding: 120px 32px 140px; /* Leave space at bottom for social icons */
+        padding: 120px 32px 0px; /* Pads from top so it sits neatly below close button */
         gap: 0;
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 1050;
@@ -70,7 +70,7 @@
         right: 0;
     }
 
-    /* Drawer Item UI Architecture */
+    /* Individual menu links styles */
     ul.nav-links li {
         width: 100%;
         height: auto;
@@ -97,7 +97,7 @@
         text-align: center;
     }
 
-    /* Right-facing chevron indicator matching design wireframe */
+    /* Right chevron arrow match for layout */
     ul.nav-links li a::after {
         content: "\f105";
         font-family: "Font Awesome 6 Free";
@@ -108,60 +108,49 @@
         font-size: 15px;
     }
 
-    ul.nav-links li a:hover {
-        color: #4f46e5;
-        background-color: #f8fafc;
-    }
-    
-    ul.nav-links li a:hover i,
-    ul.nav-links li a:hover::after {
-        color: #4f46e5;
-    }
-
-    /* 4. REPOSITIONED SOCIAL ICONS BLOCK */
-    /* Remove standard row alignment and position explicitly inside open menu wrapper */
+    /* 4. SOCIAL ICONS POSITIONED AT THE ABSOLUTE BOTTOM */
     .navbar-wrapper .social-icons {
         position: fixed;
-        bottom: 50px; /* Placed cleanly near the navigation base */
+        bottom: 45px;      /* Pins them directly to the bottom of the device screen */
         left: 0;
         width: 100%;
-        justify-content: center;
-        gap: 24px;
+        justify-content: flex-start; /* Matches screenshot left-alignment */
+        padding: 0 40px;   /* Symmetrical side padding matching links */
+        gap: 16px;
         z-index: 1100;
         
-        /* Hidden by default, slides out with the menu panel */
+        /* Hidden offscreen by default, slides with the menu */
         transform: translateX(100%);
         transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* When the navbar links panel is active, reveal social section inline */
+    /* Slides the social block into view when menu is active */
     .navbar:has(.nav-links.active) .social-icons {
         transform: translateX(0);
     }
 
-    /* Style social links matching wireframe box-style design */
+    /* White modern card containers for social icons matching your layout image */
     .navbar-wrapper .social-icons a {
-        background-color: #f8fafc;
+        background-color: #ffffff;
         border: 1px solid #e2e8f0;
-        width: 54px;
-        height: 54px;
-        border-radius: 12px;
+        width: 58px;
+        height: 58px;
+        border-radius: 14px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 22px;
+        font-size: 24px;
         color: #0f172a;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        transition: all 0.2s ease;
     }
 
-    /* Injected wireframe helper title above row */
+    /* "Connect with me" subtitle heading string placed perfectly above the icons */
     .navbar-wrapper .social-icons::before {
         content: "Connect with me";
         position: absolute;
-        top: -30px;
-        left: 10%;
-        width: 80%;
-        text-align: left;
+        top: -32px;
+        left: 40px;        /* Matches the links and cards offset */
         font-size: 14px;
         font-weight: 600;
         color: #475569;
