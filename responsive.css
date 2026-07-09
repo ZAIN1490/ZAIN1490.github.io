@@ -3,6 +3,11 @@
    ========================================== */
 @media screen and (max-width: 768px) {
 
+    /* Prevent background scrolling when menu is active */
+    body.no-scroll {
+        overflow: hidden;
+    }
+
     /* 1. GLOBAL TYPOGRAPHY ADJUSTMENTS */
     html {
         scroll-padding-top: 90px;
@@ -23,7 +28,7 @@
         line-height: 1.6;
     }
 
-    /* 2. NAVBAR CONFIGURATION & HAMBURGER SHOWCASE */
+    /* 2. NAVBAR CONFIGURATION */
     .navbar-wrapper {
         padding-top: 12px;
         padding-bottom: 8px;
@@ -44,26 +49,19 @@
         display: flex !important;
     }
 
-    /* Hide the standalone desktop social row from header container space */
-    .navbar > .social-icons {
-        display: none;
-    }
-
-    /* 3. VERTICAL SLIDE-OUT DRAWER MENU */
+    /* 3. FULL-PAGE MENU DRAWER SETUP */
     ul.nav-links {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 85%;
-        max-width: 340px;
+        width: 100%; /* Changed to 100% for full-screen layout */
         height: 100vh;
         background-color: #ffffff;
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        padding: 100px 24px 40px;
+        padding: 120px 32px 140px; /* Leave space at bottom for social icons */
         gap: 0;
-        box-shadow: -10px 0 30px rgba(15, 23, 42, 0.05);
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 1050;
     }
@@ -72,7 +70,7 @@
         right: 0;
     }
 
-    /* Drawer Item UI Architecture matching your wireframe design */
+    /* Drawer Item UI Architecture */
     ul.nav-links li {
         width: 100%;
         height: auto;
@@ -81,8 +79,8 @@
 
     ul.nav-links li a {
         width: 100%;
-        padding: 20px 8px;
-        font-size: 17px;
+        padding: 22px 8px;
+        font-size: 18px;
         font-weight: 600;
         color: #1e293b;
         border-radius: 0;
@@ -92,15 +90,14 @@
         position: relative;
     }
 
-    /* Target standard font-awesome icons to match design scale */
     ul.nav-links li a i {
-        font-size: 18px;
+        font-size: 20px;
         color: #64748b;
         width: 24px;
         text-align: center;
     }
 
-    /* Right-facing chevron indicator injected via pure CSS */
+    /* Right-facing chevron indicator matching design wireframe */
     ul.nav-links li a::after {
         content: "\f105";
         font-family: "Font Awesome 6 Free";
@@ -108,8 +105,7 @@
         position: absolute;
         right: 8px;
         color: #94a3b8;
-        font-size: 14px;
-        transition: transform 0.2s ease;
+        font-size: 15px;
     }
 
     ul.nav-links li a:hover {
@@ -122,7 +118,56 @@
         color: #4f46e5;
     }
 
-    /* 4. HERO SECTION DESIGN BALANCING */
+    /* 4. REPOSITIONED SOCIAL ICONS BLOCK */
+    /* Remove standard row alignment and position explicitly inside open menu wrapper */
+    .navbar-wrapper .social-icons {
+        position: fixed;
+        bottom: 50px; /* Placed cleanly near the navigation base */
+        left: 0;
+        width: 100%;
+        justify-content: center;
+        gap: 24px;
+        z-index: 1100;
+        
+        /* Hidden by default, slides out with the menu panel */
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* When the navbar links panel is active, reveal social section inline */
+    .navbar:has(.nav-links.active) .social-icons {
+        transform: translateX(0);
+    }
+
+    /* Style social links matching wireframe box-style design */
+    .navbar-wrapper .social-icons a {
+        background-color: #f8fafc;
+        border: 1px solid #e2e8f0;
+        width: 54px;
+        height: 54px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        color: #0f172a;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    }
+
+    /* Injected wireframe helper title above row */
+    .navbar-wrapper .social-icons::before {
+        content: "Connect with me";
+        position: absolute;
+        top: -30px;
+        left: 10%;
+        width: 80%;
+        text-align: left;
+        font-size: 14px;
+        font-weight: 600;
+        color: #475569;
+    }
+
+    /* 5. HERO BUTTONS & TEXT LAYOUT */
     #hero {
         min-height: auto;
         padding: 70px 20px 40px;
@@ -147,7 +192,7 @@
         font-size: 14px;
     }
 
-    /* 5. ABOUT SECTION & TECH STACK OPTIMIZATION */
+    /* 6. ABOUT SECTION & TECH STACK OPTIMIZATION */
     #about {
         padding: 40px 20px;
     }
