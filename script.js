@@ -3,29 +3,38 @@ const navLinks = document.querySelector(".nav-links");
 const backdrop = document.querySelector(".menu-backdrop");
 const body = document.body;
 
-hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");
-    navLinks.classList.toggle("active");
-    backdrop.classList.toggle("active");
+let scrollPosition = 0;
 
-    // Completely freeze the background website scroll
-    body.classList.toggle("no-scroll");
-});
+function openMenu() {
+    scrollPosition = window.scrollY;
+    body.style.top = `-${scrollPosition}px`;
+    body.classList.add("no-scroll");
 
-// Close the menu when clicking the dark backdrop
-backdrop.addEventListener("click", () => {
+    hamburger.classList.add("active");
+    navLinks.classList.add("active");
+    backdrop.classList.add("active");
+}
+
+function closeMenu() {
+    body.classList.remove("no-scroll");
+    body.style.top = "";
+    window.scrollTo(0, scrollPosition);
+
     hamburger.classList.remove("active");
     navLinks.classList.remove("active");
     backdrop.classList.remove("active");
-    body.classList.remove("no-scroll");
+}
+
+hamburger.addEventListener("click", () => {
+    if (navLinks.classList.contains("active")) {
+        closeMenu();
+    } else {
+        openMenu();
+    }
 });
 
-// Automatically close the page overlay when clicking any link
+backdrop.addEventListener("click", closeMenu);
+
 document.querySelectorAll(".nav-links a").forEach(link => {
-    link.addEventListener("click", () => {
-        hamburger.classList.remove("active");
-        navLinks.classList.remove("active");
-        backdrop.classList.remove("active");
-        body.classList.remove("no-scroll");
-    });
+    link.addEventListener("click", closeMenu);
 });
