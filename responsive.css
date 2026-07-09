@@ -3,7 +3,7 @@
    ========================================== */
 @media screen and (max-width: 768px) {
 
-    /* Prevent background scrolling when menu is active */
+    /* Lock everything behind the menu overlay */
     body.no-scroll {
         overflow: hidden;
     }
@@ -28,7 +28,7 @@
         line-height: 1.6;
     }
 
-    /* 2. NAVBAR CONFIGURATION */
+    /* 2. NAVBAR HEADER & HAMBURGER POSITIONING */
     .navbar-wrapper {
         padding-top: 12px;
         padding-bottom: 8px;
@@ -45,32 +45,39 @@
         font-size: 20px;
     }
 
+    /* Keep hamburger button layered explicitly above the white page */
     .hamburger {
         display: flex !important;
+        position: relative;
+        z-index: 2000 !important; 
     }
 
-    /* 3. FULL-PAGE NAVIGATION LINKS MENU */
+    /* 3. 100% FULL-SCREEN WHITE OVERLAY PAGE */
     ul.nav-links {
         position: fixed;
         top: 0;
-        right: -100%;
-        width: 100%;       /* Takes full screen width */
-        height: 100vh;     /* Takes full screen height */
-        background-color: #ffffff;
+        left: 0;
+        width: 100vw;       /* Takes full viewport width */
+        height: 100vh;      /* Takes full viewport height */
+        background-color: #ffffff !important; /* Pure white page takeover */
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        padding: 120px 32px 0px; /* Pads from top so it sits neatly below close button */
+        padding: 120px 32px 0px; /* Shifts content down below the header line */
         gap: 0;
-        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 1050;
+        
+        /* Starts off-screen and moves completely visible */
+        transform: translateY(-100%);
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1500;
     }
 
+    /* Slides the whole white page into position */
     ul.nav-links.active {
-        right: 0;
+        transform: translateY(0);
     }
 
-    /* Individual menu links styles */
+    /* Menu Link rows mapping exactly to your image */
     ul.nav-links li {
         width: 100%;
         height: auto;
@@ -97,7 +104,7 @@
         text-align: center;
     }
 
-    /* Right chevron arrow match for layout */
+    /* Injects the right chevron side arrow dynamically */
     ul.nav-links li a::after {
         content: "\f105";
         font-family: "Font Awesome 6 Free";
@@ -108,28 +115,28 @@
         font-size: 15px;
     }
 
-    /* 4. SOCIAL ICONS POSITIONED AT THE ABSOLUTE BOTTOM */
+    /* 4. PINNED BOTTOM SOCIAL ROW CONFIGURATION */
     .navbar-wrapper .social-icons {
         position: fixed;
-        bottom: 45px;      /* Pins them directly to the bottom of the device screen */
+        bottom: 45px;       /* Anchors icons exactly to screen base line */
         left: 0;
-        width: 100%;
-        justify-content: flex-start; /* Matches screenshot left-alignment */
-        padding: 0 40px;   /* Symmetrical side padding matching links */
+        width: 100vw;
+        justify-content: flex-start;
+        padding: 0 40px;
         gap: 16px;
-        z-index: 1100;
+        z-index: 1600;      /* Places icons perfectly on top of white backdrop */
         
-        /* Hidden offscreen by default, slides with the menu */
-        transform: translateX(100%);
-        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Synchronized sliding motion with the main menu background takeover */
+        transform: translateY(-100vh);
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Slides the social block into view when menu is active */
+    /* Brings social blocks into play alongside active overlay display */
     .navbar:has(.nav-links.active) .social-icons {
-        transform: translateX(0);
+        transform: translateY(0);
     }
 
-    /* White modern card containers for social icons matching your layout image */
+    /* Styling social elements to look like white cards from design */
     .navbar-wrapper .social-icons a {
         background-color: #ffffff;
         border: 1px solid #e2e8f0;
@@ -142,15 +149,14 @@
         font-size: 24px;
         color: #0f172a;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-        transition: all 0.2s ease;
     }
 
-    /* "Connect with me" subtitle heading string placed perfectly above the icons */
+    /* Injects "Connect with me" subtitle text string */
     .navbar-wrapper .social-icons::before {
         content: "Connect with me";
         position: absolute;
         top: -32px;
-        left: 40px;        /* Matches the links and cards offset */
+        left: 40px;
         font-size: 14px;
         font-weight: 600;
         color: #475569;
