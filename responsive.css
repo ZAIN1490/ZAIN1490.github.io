@@ -49,6 +49,20 @@
     .navbar > .social-icons {
         display: none;
     }
+.menu-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 1040;
+}
+
+.menu-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
 
     /* 3. VERTICAL SLIDE-OUT DRAWER MENU */
     ul.nav-links {
