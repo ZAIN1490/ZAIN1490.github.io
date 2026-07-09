@@ -2,29 +2,65 @@
 
 .hamburger{
     display:flex;
-}
-
-.nav-links{
-    position:fixed;
-    top:95px;
-    left:-100%;
-    width:90%;
-    background:#ffffff;
-    border-radius:20px;
-    padding:25px;
-    display:flex;
-    flex-direction:column;
-    gap:20px;
-    transition:.35s ease;
-    box-shadow:0 15px 40px rgba(0,0,0,.08);
-}
-
-.nav-links.active{
-    left:5%;
+    z-index:1002;
 }
 
 .social-icons{
     display:none;
+}
+
+.nav-links{
+
+    position:fixed;
+
+    top:0;
+    left:-100%;
+
+    width:100%;
+    height:100vh;
+
+    background:#ffffff;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    gap:35px;
+
+    transition:.4s ease;
+
+    z-index:1001;
+}
+
+.nav-links.active{
+
+    left:0;
+
+}
+
+.nav-links li{
+
+    list-style:none;
+
+}
+
+.nav-links a{
+
+    font-size:1.6rem;
+    font-weight:700;
+
+    color:#0f172a;
+
+    padding:10px;
+
+}
+
+.nav-links a:hover{
+
+    color:#4f46e5;
+
 }
 
 }
