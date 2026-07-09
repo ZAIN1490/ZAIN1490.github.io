@@ -3,11 +3,6 @@
    ========================================== */
 @media screen and (max-width: 768px) {
 
-    /* Freezes background page activity completely */
-    body.no-scroll {
-        overflow: hidden;
-    }
-
     /* 1. GLOBAL TYPOGRAPHY ADJUSTMENTS */
     html {
         scroll-padding-top: 90px;
@@ -28,7 +23,7 @@
         line-height: 1.6;
     }
 
-    /* 2. NAVBAR NAVIGATION HEADER & HAMBURGER Z-INDEX */
+    /* 2. NAVBAR CONFIGURATION & HAMBURGER SHOWCASE */
     .navbar-wrapper {
         padding-top: 12px;
         padding-bottom: 8px;
@@ -45,36 +40,39 @@
         font-size: 20px;
     }
 
-    /* Keep the hamburger button layered safely above the new page takeover */
     .hamburger {
         display: flex !important;
-        position: relative;
-        z-index: 9999 !important; 
     }
 
-    /* 3. 100% FULL SCREEN WHITE PAGE OVERLAY SYSTEM */
+    /* Hide the standalone desktop social row from header container space */
+    .navbar > .social-icons {
+        display: none;
+    }
+
+    /* 3. VERTICAL SLIDE-OUT DRAWER MENU */
     ul.nav-links {
         position: fixed;
         top: 0;
-        left: -100%;        /* Hidden completely off-screen by default */
-        width: 100vw;       /* Strict viewport width screen match */
-        height: 100vh;      /* Strict viewport height screen match */
-        background-color: #ffffff !important; /* Forces clean full white takeover page */
+        right: -100%;
+        width: 85%;
+        max-width: 340px;
+        height: 100vh;
+        background-color: #ffffff;
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        padding: 130px 40px 0px; /* Pads down beautifully below the top header zone */
+        padding: 100px 24px 40px;
         gap: 0;
-        transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 9000;      /* Behind hamburger button, but completely over the body */
+        box-shadow: -10px 0 30px rgba(15, 23, 42, 0.05);
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1050;
     }
 
-    /* Slides the whole separate page into view */
     ul.nav-links.active {
-        left: 0;
+        right: 0;
     }
 
-    /* Standardized row layout structure for your 3 links */
+    /* Drawer Item UI Architecture matching your wireframe design */
     ul.nav-links li {
         width: 100%;
         height: auto;
@@ -83,8 +81,8 @@
 
     ul.nav-links li a {
         width: 100%;
-        padding: 22px 8px;
-        font-size: 18px;
+        padding: 20px 8px;
+        font-size: 17px;
         font-weight: 600;
         color: #1e293b;
         border-radius: 0;
@@ -94,14 +92,15 @@
         position: relative;
     }
 
+    /* Target standard font-awesome icons to match design scale */
     ul.nav-links li a i {
-        font-size: 20px;
+        font-size: 18px;
         color: #64748b;
         width: 24px;
         text-align: center;
     }
 
-    /* Adds your signature right chevron side indicator arrows */
+    /* Right-facing chevron indicator injected via pure CSS */
     ul.nav-links li a::after {
         content: "\f105";
         font-family: "Font Awesome 6 Free";
@@ -109,54 +108,21 @@
         position: absolute;
         right: 8px;
         color: #94a3b8;
-        font-size: 15px;
-    }
-
-    /* 4. PINNED BOTTOM SOCIAL ROW CONFIGURATION */
-    .navbar-wrapper .social-icons {
-        position: fixed;
-        bottom: 50px;       /* Anchors icons exactly to screen base view line */
-        left: -100%;        /* Hidden in sync with the white overlay container */
-        width: 100vw;
-        justify-content: flex-start;
-        padding: 0 48px;
-        gap: 16px;
-        z-index: 9500;      /* Layers elements safely over the white page overlay */
-        transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    /* Displays social links simultaneously alongside active overlay changes */
-    .navbar:has(.nav-links.active) .social-icons {
-        left: 0;
-    }
-
-    /* Card styling for modern container display frames */
-    .navbar-wrapper .social-icons a {
-        background-color: #ffffff;
-        border: 1px solid #e2e8f0;
-        width: 58px;
-        height: 58px;
-        border-radius: 14px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px;
-        color: #0f172a;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-    }
-
-    /* Injects "Connect with me" subtitle row heading dynamically above cards */
-    .navbar-wrapper .social-icons::before {
-        content: "Connect with me";
-        position: absolute;
-        top: -32px;
-        left: 48px;
         font-size: 14px;
-        font-weight: 600;
-        color: #475569;
+        transition: transform 0.2s ease;
     }
 
-    /* 5. HERO BUTTONS & TEXT LAYOUT */
+    ul.nav-links li a:hover {
+        color: #4f46e5;
+        background-color: #f8fafc;
+    }
+    
+    ul.nav-links li a:hover i,
+    ul.nav-links li a:hover::after {
+        color: #4f46e5;
+    }
+
+    /* 4. HERO SECTION DESIGN BALANCING */
     #hero {
         min-height: auto;
         padding: 70px 20px 40px;
@@ -181,7 +147,7 @@
         font-size: 14px;
     }
 
-    /* 6. ABOUT SECTION & TECH STACK OPTIMIZATION */
+    /* 5. ABOUT SECTION & TECH STACK OPTIMIZATION */
     #about {
         padding: 40px 20px;
     }
