@@ -147,11 +147,6 @@ body.no-scroll {
         color: #4f46e5;
     }
 
-.navbar-wrapper .social-icons {
-    top: 360px;   /* was 310px — pushes icons down for more gap */
-    /* everything else stays the same */
-}
-
     /* 4. SOCIAL ICONS - LOCATED IN THE BLUE SHADED ZONE */
     .navbar-wrapper .social-icons {
         position: fixed;
