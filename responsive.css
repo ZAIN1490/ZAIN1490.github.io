@@ -51,10 +51,7 @@ body.no-scroll {
     .hamburger {
         display: flex !important;
     }
-.navbar-wrapper .social-icons {
-    top: 360px;   /* was 310px — pushes icons down for more gap */
-    /* everything else stays the same */
-}
+
     /* Hide the standalone desktop social row from header container space */
     .navbar > .social-icons {
         display: none;
@@ -90,7 +87,7 @@ body.no-scroll {
         justify-content: flex-start;
         padding: 100px 24px 90px;          /* CHANGED: Custom bottom padding accommodates icons cleanly */
         gap: 0;
-        border-radius: 0 0 24px 24px;      /* ADDED: Smooth rounding right at your red line marker */
+        
         box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 1050;
