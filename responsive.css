@@ -289,22 +289,20 @@
 
     /* THE CARD */
     .project-card { 
-        flex: 0 0 85% !important;       
+        flex: 0 0 86% !important;       
         scroll-snap-align: start;
         display: flex !important;
         flex-direction: column !important; 
         align-items: flex-start !important; 
         justify-content: flex-start !important;
         text-align: left !important;        
-        padding: 24px 20px !important;    
+        padding: 24px 20px !important; /* Generous inside padding for the card wrapper */   
         background: #ffffff;
         border-radius: 24px;
         box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
         box-sizing: border-box;
-        position: relative;               
     }
 
-    /* Explicitly block the counter watermark pseudo-element */
     .project-card::before {
         display: none !important;
         content: none !important;
@@ -314,84 +312,94 @@
         display: none !important;
     }
 
+    /* THE CONTENT WRAPPER: Stripping all desktop indentations */
     .project-content { 
         width: 100% !important;
-        box-sizing: border-box;
+        padding: 0 !important; 
+        margin: 0 !important;
         display: flex !important;
         flex-direction: column !important;
-        align-items: flex-start !important; /* Forces all children cleanly to the left */
+        align-items: flex-start !important; 
         text-align: left !important;
+        box-sizing: border-box;
     }
 
     .project-badge {
         display: inline-block !important;
         align-self: flex-start !important;
-        margin-bottom: 8px !important;
+        margin: 0 0 12px 0 !important;
     }
 
+    /* Heading: Forcing it flush to the left edge */
     .project-card h3 {
         font-size: 19px !important;
         font-weight: 700 !important;
-        margin: 4px 0 10px 0 !important;
+        margin: 0 0 10px 0 !important;
+        padding: 0 !important;
         text-align: left !important;
         width: 100% !important;
         color: #1e293b;
     }
 
+    /* Description: Forcing it flush to the left edge */
     .project-desc {
         font-size: 14px !important;
         line-height: 1.5 !important;
         color: #475569;
-        margin-bottom: 14px !important;
+        margin: 0 0 16px 0 !important;
+        padding: 0 !important;
         text-align: left !important;
         width: 100% !important;
     }
 
-    /* Horizontal list container formatting */
+    /* TECH STACK: Single row configuration, forced left, no breaking */
     .project-card .tech-stack {
         display: flex !important;
         flex-direction: row !important;     
-        flex-wrap: wrap !important;        
+        flex-wrap: nowrap !important; /* Strictly prevents dropping items to a second line */       
         justify-content: flex-start !important; 
         align-items: center !important;
-        gap: 10px !important;
-        margin: 10px 0 16px 0 !important;         
+        gap: 8px !important; /* Slightly optimized gap to guarantee single-line fit */
+        margin: 0 0 20px 0 !important;         
+        padding: 0 !important;
         width: 100% !important;
-        text-align: left !important;
+        overflow: visible;
     }
 
     .project-card .tech-item {
-        font-size: 13px !important;
-        white-space: nowrap !important;
+        font-size: 11.5px !important; /* Scaled down slightly to fit perfectly */
+        white-space: nowrap !important; 
         display: inline-flex !important;
-        align-items: center;
-        gap: 5px;
+        align-items: center !important;
+        gap: 4px !important;
         margin: 0 !important;
+        padding: 0 !important;
     }
 
-    /* FIXED LINKS CONTAINER: Clean row with even grid alignment */
+    /* LINKS CONTAINER: Forced left, single line, scaled layout */
     .project-card .project-links { 
         display: flex !important;
         flex-direction: row !important;
+        flex-wrap: nowrap !important; /* Locks links inside a single line row */
         justify-content: flex-start !important; 
         align-items: center !important;
-        gap: 20px !important; /* Clean distance separating the links */
+        gap: 16px !important; /* Clean distance separating the button links */
         border-top: 1px solid #f1f5f9;
-        padding-top: 16px !important;
-        margin-top: auto !important; 
+        padding: 16px 0 0 0 !important; /* Top padding only, left side is 0 */
+        margin: auto 0 0 0 !important; 
         width: 100% !important;
-        float: none !important;
     }
 
     .project-card .project-links a {
-        font-size: 14px !important;
+        font-size: 12.5px !important; /* Scaled down slightly so text never breaks or drops */
         font-weight: 600 !important;
         display: inline-flex !important;
         align-items: center !important;
-        gap: 6px !important;
+        justify-content: flex-start !important;
+        gap: 5px !important;
+        white-space: nowrap !important; 
         margin: 0 !important;
         padding: 0 !important;
-        text-decoration: none !important;
         width: auto !important;
     }
 
@@ -401,5 +409,6 @@
         width: 100%;
         margin-top: 12px;
     }
-}
 
+
+    
