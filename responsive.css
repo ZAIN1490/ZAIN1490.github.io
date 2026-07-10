@@ -3,15 +3,16 @@
    ========================================== */
 @media screen and (max-width: 768px) {
 
-    /* 1. GLOBAL TYPOGRAPHY ADJUSTMENTS */
+    /* 1. GLOBAL OVERFLOW PROTECTION & TYPOGRAPHY */
+    html, body {
+        width: 100%;
+        overflow-x: hidden; 
+    }
+
     html {
         scroll-padding-top: 90px;
     }
-    html, body {
-    width: 100%;
-    overflow-x: hidden;
-}
-
+    
     body.no-scroll {
         position: fixed;
         width: 100%;
@@ -38,6 +39,8 @@
         padding-top: 12px;
         padding-bottom: 8px;
         position: relative; 
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .navbar {
@@ -47,6 +50,7 @@
         height: 60px;
         padding: 0 20px;
         border-radius: 30px;
+        box-sizing: border-box;
     }
 
     h2.nav-logo {
@@ -181,6 +185,8 @@
     #hero {
         min-height: auto;
         padding: 70px 20px 40px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .hero-content {
@@ -205,6 +211,8 @@
     /* 6. ABOUT SECTION & TECH STACK OPTIMIZATION */
     #about {
         padding: 40px 20px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     #about h2 {
@@ -218,6 +226,8 @@
         overflow-x: visible;
         padding: 0;
         margin: 30px auto 10px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .logo-box {
@@ -260,19 +270,6 @@
         margin-bottom: 28px !important;
     }
 
-    .projects-text-wrapper {
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-
-    .projects-badge-card { 
-        width: 100% !important;
-        max-width: 100% !important;
-        text-align: center !important;
-        box-sizing: border-box !important;
-        margin-top: 10px;
-    }
-
     /* CAROUSEL HORIZONTAL CONTAINER */
     .projects-list {
         display: flex !important;
@@ -284,7 +281,6 @@
         width: 100%;
         box-sizing: border-box;
         scrollbar-width: none;          
-        counter-reset: project-counter; 
     }
 
     .projects-list::-webkit-scrollbar {
@@ -293,11 +289,12 @@
 
     /* THE CARD */
     .project-card { 
-        flex: 0 0 88% !important;       
+        flex: 0 0 85% !important;       
         scroll-snap-align: start;
         display: flex !important;
         flex-direction: column !important; 
         align-items: flex-start !important; 
+        justify-content: flex-start !important;
         text-align: left !important;        
         padding: 24px 20px !important;    
         background: #ffffff;
@@ -307,42 +304,37 @@
         position: relative;               
     }
 
-    /* EXACT HTML CLASS MATCH: Completely deletes the image wrapper block */
-    .project-card .project-image { 
+    /* Explicitly block the counter watermark pseudo-element */
+    .project-card::before {
         display: none !important;
+        content: none !important;
     }
 
-    /* PREMIUM WATERMARK BRANDING INDEX */
-    .project-card::before {
-        counter-increment: project-counter;
-        content: "0" counter(project-counter); 
-        position: absolute;
-        top: 22px;
-        right: 24px;
-        font-size: 24px;
-        font-weight: 800;
-        font-family: 'Courier New', Courier, monospace; 
-        color: #cbd5e1; 
-        letter-spacing: -0.5px;
-        z-index: 10;
-        opacity: 0.7;
+    .project-card .project-image { 
+        display: none !important;
     }
 
     .project-content { 
         width: 100% !important;
         box-sizing: border-box;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important; /* Forces all children cleanly to the left */
+        text-align: left !important;
     }
 
     .project-badge {
-        display: inline-block;
-        margin-bottom: 6px;
+        display: inline-block !important;
+        align-self: flex-start !important;
+        margin-bottom: 8px !important;
     }
 
     .project-card h3 {
         font-size: 19px !important;
         font-weight: 700 !important;
         margin: 4px 0 10px 0 !important;
-        max-width: 80%; 
+        text-align: left !important;
+        width: 100% !important;
         color: #1e293b;
     }
 
@@ -351,42 +343,56 @@
         line-height: 1.5 !important;
         color: #475569;
         margin-bottom: 14px !important;
+        text-align: left !important;
+        width: 100% !important;
     }
 
-    /* EXACT MATCH FOR HTML: Horizontal single-line stack tag format */
+    /* Horizontal list container formatting */
     .project-card .tech-stack {
         display: flex !important;
         flex-direction: row !important;     
-        flex-wrap: nowrap !important;        
+        flex-wrap: wrap !important;        
         justify-content: flex-start !important; 
         align-items: center !important;
-        gap: 12px !important;
-        margin: 14px 0 !important;         
+        gap: 10px !important;
+        margin: 10px 0 16px 0 !important;         
         width: 100% !important;
+        text-align: left !important;
     }
 
     .project-card .tech-item {
         font-size: 13px !important;
         white-space: nowrap !important;
-        display: flex !important;
+        display: inline-flex !important;
         align-items: center;
         gap: 5px;
+        margin: 0 !important;
     }
 
-    /* EXACT MATCH FOR HTML: Links styling */
+    /* FIXED LINKS CONTAINER: Clean row with even grid alignment */
     .project-card .project-links { 
         display: flex !important;
         flex-direction: row !important;
-        justify-content: space-between !important; 
+        justify-content: flex-start !important; 
+        align-items: center !important;
+        gap: 20px !important; /* Clean distance separating the links */
         border-top: 1px solid #f1f5f9;
-        padding-top: 14px !important;
-        margin-top: 12px !important; 
+        padding-top: 16px !important;
+        margin-top: auto !important; 
         width: 100% !important;
+        float: none !important;
     }
 
     .project-card .project-links a {
         font-size: 14px !important;
-        font-weight: 600;
+        font-weight: 600 !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        text-decoration: none !important;
+        width: auto !important;
     }
 
     .view-more-container {
