@@ -286,32 +286,33 @@
         display: none;                  
     }
 
-    /* SWIPER CARDS */
+    /* SWIPER CARDS: Polished typography alignment */
     .project-card { 
         flex: 0 0 88% !important;       
         scroll-snap-align: start;
         display: flex !important;
         flex-direction: column !important; 
-        align-items: center !important;    
-        text-align: center !important;     
-        padding: 20px 16px !important;     /* Shrunk padding slightly to trim card height */
+        align-items: flex-start !important; /* FIXED: Keeps structural layout items tidy */
+        text-align: left !important;        /* FIXED: Makes reading descriptions seamless and premium */
+        padding: 16px !important;           /* Optimized inner space bounds */
         background: #ffffff;
         border-radius: 20px;
         box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
         box-sizing: border-box;
     }
 
+    /* FIXED: Takes up full width of the card now */
     .project-image-wrapper { 
         width: 100% !important;
         max-width: 100% !important;
         height: auto !important;
-        margin-bottom: 12px !important;
+        margin-bottom: 16px !important;
     }
 
     .project-image-wrapper img {
         width: 100% !important;
         height: auto !important;
-        border-radius: 12px;
+        border-radius: 14px;
         display: block;
         object-fit: cover;
     }
@@ -319,11 +320,19 @@
     .project-info-wrapper { 
         width: 100% !important;
         box-sizing: border-box;
+        padding: 0 4px; /* Tiny internal text padding */
+    }
+
+    /* Frontend badge positioning */
+    .project-info-wrapper span {
+        display: inline-block;
+        margin-bottom: 4px;
     }
 
     .project-info-wrapper h3 {
-        font-size: 18px !important;
-        margin: 8px 0 6px 0 !important;
+        font-size: 19px !important;
+        font-weight: 700 !important;
+        margin: 6px 0 !important;
         color: #1e293b;
     }
 
@@ -331,28 +340,26 @@
         font-size: 14px !important;
         line-height: 1.5 !important;
         color: #475569;
-        margin-bottom: 8px !important;
+        margin-bottom: 14px !important;
     }
 
-    /* FIX: Force tags row strictly on one line without text wraps or height bloat */
+    /* FIXED: HTML/CSS/JS tech items in a tight, left-aligned horizontal row */
     .project-tech-stack,
     .project-info-wrapper div,
     .project-card [class*="tech"] {
         display: flex !important;
-        flex-direction: row !important;     /* Keeps them strictly side-by-side */
-        flex-wrap: nowrap !important;        /* Denies stacking onto new lines */
-        justify-content: center !important;
+        flex-direction: row !important;     
+        flex-wrap: nowrap !important;        
+        justify-content: flex-start !important; /* Left-aligned to sync with the text paragraph */
         align-items: center !important;
-        gap: 10px !important;
-        margin: 8px auto !important;         /* Tighter top/bottom margins */
+        gap: 12px !important;
+        margin: 12px 0 !important;         
         width: 100% !important;
-        height: auto !important;
     }
 
-    /* Ensure text elements inside the stack stay small and dynamic */
     .project-card [class*="tech"] span,
     .project-card .project-tech-stack span {
-        font-size: 12px !important;
+        font-size: 13px !important;
         white-space: nowrap !important;
     }
 
@@ -361,9 +368,9 @@
     .project-card [class*="links"] { 
         display: flex !important;
         flex-direction: row !important;
-        justify-content: space-around !important; 
+        justify-content: space-between !important; /* Spreads out evenly to anchor left and right */
         border-top: 1px solid #f1f5f9;
-        padding-top: 12px !important;
+        padding-top: 14px !important;
         margin-top: auto !important; 
         width: 100% !important;
     }
