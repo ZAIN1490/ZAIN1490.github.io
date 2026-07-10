@@ -7,11 +7,12 @@
     html {
         scroll-padding-top: 90px;
     }
-body.no-scroll {
-    position: fixed;
-    width: 100%;
-    overflow: hidden;
-}
+    
+    body.no-scroll {
+        position: fixed;
+        width: 100%;
+        overflow: hidden;
+    }
 
     h1 {
         font-size: 2.2rem !important;
@@ -36,8 +37,8 @@ body.no-scroll {
     }
 
     .navbar {
-    position: relative;
-    z-index: 1060;
+        position: relative;
+        z-index: 1060;
         width: 92%;
         height: 60px;
         padding: 0 20px;
@@ -56,22 +57,23 @@ body.no-scroll {
     .navbar > .social-icons {
         display: none;
     }
-.menu-backdrop {
-    position: fixed;
-    inset: 0;
-    backdrop-filter: blur(4px);
--webkit-backdrop-filter: blur(4px);
-    background: rgba(15, 23, 42, 0.5);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease;
-    z-index: 1040;
-}
+    
+    .menu-backdrop {
+        position: fixed;
+        inset: 0;
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        background: rgba(15, 23, 42, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease;
+        z-index: 1040;
+    }
 
-.menu-backdrop.active {
-    opacity: 1;
-    visibility: visible;
-}
+    .menu-backdrop.active {
+        opacity: 1;
+        visibility: visible;
+    }
 
     /* 3. VERTICAL SLIDE-OUT DRAWER MENU */
     ul.nav-links {
@@ -87,7 +89,6 @@ body.no-scroll {
         justify-content: flex-start;
         padding: 100px 24px 90px;          /* CHANGED: Custom bottom padding accommodates icons cleanly */
         gap: 0;
-        
         box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 1050;
@@ -233,7 +234,6 @@ body.no-scroll {
         font-size: 11px;
     }
 
-
     /* ==========================================
        7. REDESIGNED PROJECTS CAROUSEL FOR MOBILE
        ========================================== */
@@ -244,166 +244,136 @@ body.no-scroll {
         overflow: hidden;
     }
 
-.projects-header h2 {
-    font-size: 2rem !important;
-    line-height: 1.2 !important;
-    letter-spacing: -0.5px !important;
-    margin-bottom: 12px !important;
-}
+    /* Cleaned up layout selector for smaller project heading */
+    .projects-header h2 {
+        font-size: 2rem !important;
+        line-height: 1.2 !important;
+        letter-spacing: -0.5px !important;
+        margin-bottom: 12px !important;
+    }
 
-
-    /* Stack header text on top, badge card underneath */
-    .projects-header-container { 
-        display: flex;
+    /* Stacks header elements on top of each other cleanly */
+    .projects-header-container,
+    .projects-header { 
+        display: flex !important;
         flex-direction: column !important;
-        align-items: center;
-        gap: 20px;
-        width: 100%;
-        margin-bottom: 28px;
+        align-items: flex-start !important; /* Left aligns layout titles */
+        gap: 20px !important;
+        width: 100% !important;
+        margin-bottom: 28px !important;
     }
 
     .projects-text-wrapper {
-        width: 100%;
-        text-align: left;
+        width: 100% !important;
+        max-width: 100% !important;
     }
 
-    /* Centers the 4+ badge card on its own row */
+    /* Centers the 4+ badge card on its own row directly below text entries */
     .projects-badge-card { 
-        width: 100%;
-        max-width: 100%;
-        text-align: center;
-        box-sizing: border-box;
+        width: 100% !important;
+        max-width: 100% !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        margin-top: 10px;
     }
 
-    /* THE FIX: Turn the main project grid container into a swiper container */
+    /* THE SWIPER CONTAINER: Houses your side-by-side scrolling system */
     .projects-container {
         display: flex !important;
-        flex-direction: row !important; /* Side-by-side scrolling cards */
-        overflow-x: auto !important;     /* Enables touch swipe swipe sliding */
+        flex-direction: row !important; 
+        overflow-x: auto !important;     
         scroll-snap-type: x mandatory;
         gap: 16px;
         padding: 8px 4px 24px;
         width: 100%;
         box-sizing: border-box;
-        scrollbar-width: none;          /* Hides ugly desktop scrollbars on Firefox */
+        scrollbar-width: none;          
     }
 
     .projects-container::-webkit-scrollbar {
-        display: none;                  /* Hides scrollbars on Chrome, Safari & Opera */
+        display: none;                  
     }
 
-    /* SWIPER CARDS: Fully constrained, content-friendly vertical block sizing */
+    /* POLISHED SWIPER CARDS: Center-aligned typography context */
     .project-card { 
-        flex: 0 0 88% !important;       /* Fits perfectly without hanging off horribly */
+        flex: 0 0 88% !important;       
         scroll-snap-align: start;
-        display: flex;
-        flex-direction: column !important; /* Move image upwards for an app-like card look */
-        padding: 16px;
+        display: flex !important;
+        flex-direction: column !important; 
+        align-items: center !important;    /* Centers screenshot and copy stack items */
+        text-align: center !important;     /* Centers description text nicely */
+        padding: 24px 20px !important;
         background: #ffffff;
         border-radius: 20px;
         box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
         box-sizing: border-box;
     }
 
-    /* Image wrapper sized beautifully on top */
+    /* Image wrapper spans beautifully edge-to-edge inside card borders */
     .project-image-wrapper { 
-        width: 100%;
-        height: 160px;
-        margin-bottom: 14px;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        margin-bottom: 16px !important;
     }
 
     .project-image-wrapper img {
-        width: 100%;
-        height: 100%;
+        width: 100% !important;
+        height: auto !important;
         border-radius: 12px;
-        object-fit: cover;
         display: block;
+        object-fit: cover;
     }
 
-    /* Description and information text adjustments */
     .project-info-wrapper { 
-        width: 100%;
+        width: 100% !important;
         box-sizing: border-box;
     }
 
     .project-info-wrapper h3 {
-        font-size: 17px;
-        margin: 4px 0 6px 0;
+        font-size: 18px !important;
+        margin: 12px 0 6px 0 !important;
         color: #1e293b;
     }
 
     .project-info-wrapper p {
-        font-size: 13px;
-        line-height: 1.5;
+        font-size: 14px !important;
+        line-height: 1.5 !important;
         color: #475569;
-        margin-bottom: 12px;
+        margin-bottom: 12px !important;
     }
 
-    /* Inline row touch target buttons */
-    .project-links-container { 
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    /* Centers the horizontal technology stack tags row */
+    .project-tech-stack,
+    .project-card [class*="tech"] {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 12px !important;
+        margin: 14px auto !important;
+        width: 100% !important;
+    }
+
+    /* BALANCED ACTION BUTTON LINK ALIGNMENTS OVER THE LOWER SURFACE */
+    .project-links-container,
+    .project-card [class*="links"] { 
+        display: flex !important;
+        justify-content: space-around !important; /* Perfect space balancing layout tracking */
         border-top: 1px solid #f1f5f9;
-        padding-top: 12px;
-        margin-top: auto; /* Pushes links to the absolute bottom of the card smoothly */
-        width: 100%;
+        padding-top: 16px !important;
+        margin-top: auto !important; 
+        width: 100% !important;
     }
 
     .project-links-container a {
-        font-size: 13px;
+        font-size: 14px !important;
         font-weight: 600;
     }
 
-    /* Central button spacer mapping wrapper */
+    /* Central view-more global navigation spacer wrapper link */
     .view-more-container {
         display: flex;
         justify-content: center;
         width: 100%;
         margin-top: 12px;
     }
-
-    /* ... (any other code you already have inside your media query) ... */
-
-    /* ==========================================
-       7. PROJECTS HEADER STACKING FIX
-       ========================================== */
-    
-    /* Target the parent row holding both the text and the badge */
-    #projects .projects-header-container,
-    #projects .projects-header,
-    #projects > div:first-of-type { 
-        display: flex !important;
-        flex-direction: column !important; /* Breaks the row, stacks them vertically */
-        align-items: flex-start !important; /* Keeps your text perfectly left-aligned */
-        width: 100% !important;
-        gap: 20px !important;
-    }
-
-    /* Force the text block to take up 100% width on top */
-    .projects-text-wrapper,
-    #projects .projects-text-wrapper,
-    #projects > div:first-of-type > div:first-child {
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-
-    /* Target the 4+ badge container to sit completely below the text */
-    .projects-badge-card,
-    .stats-card-class,
-    #projects div[class*="badge"],
-    #projects div[class*="stats"],
-    #projects > div:first-of-type > div:last-child { 
-        width: 100% !important;
-        max-width: 100% !important;
-        display: block !important;
-        text-align: center !important; /* Centers the text inside the badge */
-        box-sizing: border-box !important;
-        margin-top: 10px;
-    }
-
 }
-
-
-}
-        
