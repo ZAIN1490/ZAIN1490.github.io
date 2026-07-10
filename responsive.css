@@ -234,51 +234,59 @@ body.no-scroll {
     }
 }
 
-    /* ==========================================
-       7. PROJECTS SECTION MOBILE CONFIGURATION
+        /* ==========================================
+       7. PROJECTS SECTION MOBILE (EXACT MATCH)
        ========================================== */
     #projects {
         padding: 40px 16px;
         width: 100%;
-        overflow: hidden;
-    }
-
-    /* FIX: Separates the main heading and the 4+ badge into separate rows */
-    .projects-header-container { /* Replace with your actual header row class name */
-        display: flex;
-        flex-direction: column !important; /* Forces them to stack vertically */
-        align-items: flex-start;
-        gap: 16px;
-        width: 100%;
-        margin-bottom: 32px;
-    }
-
-    /* The 4+ Projects Completed badge card styling */
-    .projects-badge-card { /* Replace with your actual badge card class name */
-        width: 100%;
-        max-width: 100%;
         box-sizing: border-box;
     }
 
-    /* THE CARD: Stacks image on top, text below to fit perfectly on mobile screens */
-    .project-card { /* Replace with your actual project card class name */
+    /* MATCHES YOUR IMAGE: Forces Heading on top, Badge underneath */
+    .projects-header-container { /* Replace with your main parent section/wrapper class */
         display: flex;
-        flex-direction: column !important; /* Moves image upward, text downward */
+        flex-direction: column !important;
+        align-items: center; /* Centers the elements vertically stacked */
+        text-align: left;    /* Keeps your heading text left-aligned */
+        width: 100%;
+        gap: 24px;
+        margin-bottom: 32px;
+    }
+
+    /* Ensure the text content wrapper takes full width */
+    .projects-text-wrapper { /* Replace with the wrapper around your h2 and p if you have one */
+        width: 100%;
+    }
+
+    /* MATCHES YOUR IMAGE: Centers the 4+ badge card on its own row */
+    .projects-badge-card { /* Replace with your actual purple 4+ badge card class name */
+        width: 100%;
+        max-width: 100%;
+        display: block;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    /* THE CARD: Stacks the image upward to perfectly fit mobile widths */
+    .project-card { /* Replace with your actual project card container class name */
+        display: flex;
+        flex-direction: column !important; 
         width: 100%;
         max-width: 100%;
         padding: 20px;
-        margin-bottom: 20px;
+        margin-bottom: 24px;
         border-radius: 20px;
         background: #ffffff;
-        box-sizing: border-box; /* Prevents card from exceeding mobile screen width */
+        box-sizing: border-box; /* Crucial: Prevents card from spilling out of mobile width */
     }
 
-    /* Image wrapper takes full width on top now */
-    .project-image-wrapper { /* Replace with your actual image container class name */
+    /* Image wrapper takes full width on top */
+    .project-image-wrapper { /* Replace with your image container class */
         width: 100%;
         max-width: 100%;
         height: auto;
-        margin-bottom: 8px;
+        margin-bottom: 12px;
     }
 
     .project-image-wrapper img {
@@ -289,8 +297,8 @@ body.no-scroll {
         object-fit: cover;
     }
 
-    /* Text details layout adjustment below the image */
-    .project-info-wrapper { /* Replace with your actual text wrapper class name */
+    /* Info details row */
+    .project-info-wrapper { /* Replace with your text content container class */
         width: 100%;
         padding: 0 4px;
         box-sizing: border-box;
@@ -301,14 +309,8 @@ body.no-scroll {
         margin: 8px 0;
     }
 
-    .project-info-wrapper p {
-        font-size: 14px;
-        line-height: 1.5;
-        color: #475569;
-    }
-
-    /* Project links structure alignment */
-    .project-links-container { /* Replace with your actual link row class name */
+    /* Links row split tracking */
+    .project-links-container { /* Replace with your link row container class */
         display: flex;
         justify-content: space-between;
         align-items: center;
