@@ -456,7 +456,7 @@ h1 {
     gap: 6px;
 }
 
-.projects-header h1 {
+.projects-header h2 {
     font-size: 2.5rem;
     color: var(--text-dark);
     margin: 16px 0;
@@ -464,7 +464,7 @@ h1 {
     line-height: 1.2;
 }
 
-.projects-header h1 .highlight {
+.projects-header h2 .highlight {
     color: var(--primary-purple);
 }
 
