@@ -410,7 +410,6 @@
         margin-top: 12px;
     }
 
-
     /* ==========================================
        8. CERTIFICATES SECTION MOBILE OPTIMIZATION
        ========================================== */
@@ -420,46 +419,69 @@
         box-sizing: border-box;
     }
 
-    /* Stacks header text and the stat card vertically */
+    /* Stack layout cleanly */
     .certificates-container {
         display: flex !important;
         flex-direction: column !important;
         align-items: flex-start !important;
-        gap: 24px !important;
+        gap: 20px !important;
         width: 100% !important;
     }
 
+    /* 100% Full Width Text Container - No Badges */
     .certificates-left {
         width: 100% !important;
+        max-width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important; 
+        text-align: left !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
 
+    /* Completely hide the section badge as requested */
+    .certificates-left .section-badge,
+    #certificates .section-badge {
+        display: none !important;
+    }
+
+    /* Main Heading taking up 100% of the view width */
     .certificates-left h2 {
         font-size: 2rem !important;
         line-height: 1.2 !important;
         letter-spacing: -0.5px !important;
-        margin-bottom: 12px !important;
-    }
-
-    /* Centers and scales the "Certificates Earned" card on mobile */
-    .certificates-badge-card {
+        margin: 0 0 12px 0 !important; 
+        padding: 0 !important;
         width: 100% !important;
-        max-width: 100% !important;
-        padding: 20px !important;
-        text-align: center !important;
-        box-sizing: border-box !important;
     }
 
-    /* FILTER TABS: Allows horizontal scrolling if categories exceed screen width */
+    /* Paragraph Text taking up 100% of the view width */
+    .certificates-left p {
+        font-size: 15px !important;
+        line-height: 1.6 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        color: #475569;
+    }
+
+    /* Hide the large desktop desktop badge card completely if we want text-only style */
+    .certificates-badge-card {
+        display: none !important;
+    }
+
+    /* FILTER TABS: Smooth horizontal sliding row */
     .certificate-filters {
         display: flex !important;
         flex-direction: row !important;
         overflow-x: auto !important;
         white-space: nowrap !important;
         gap: 8px !important;
-        padding: 4px 4px 16px 4px !important;
-        margin: 24px 0 !important;
+        padding: 4px 0 16px 0 !important;
+        margin: 20px 0 !important;
         width: 100% !important;
-        scrollbar-width: none; /* Hides default scrollbar for a clean look */
+        scrollbar-width: none; 
         -webkit-overflow-scrolling: touch;
     }
 
@@ -470,10 +492,10 @@
     .filter-btn {
         padding: 8px 16px !important;
         font-size: 13px !important;
-        flex: 0 0 auto !important; /* Prevents buttons from squeezing/shrinking */
+        flex: 0 0 auto !important; 
     }
 
-    /* CERTIFICATE CARDS GRID: Changes from a 3-column desktop layout to a perfect 1-column stack */
+    /* CERTIFICATE CARDS GRID: 1-Column Stack */
     .certificates-grid {
         display: flex !important;
         flex-direction: column !important;
@@ -493,11 +515,10 @@
         text-align: left !important;
     }
 
-    /* The visual media slot inside the card */
     .certificate-media-placeholder,
     .certificate-img-wrapper {
         width: 100% !important;
-        height: 160px !important; /* Keeps a neat proportions box on mobile */
+        height: 160px !important; 
         margin-bottom: 16px !important;
     }
 
@@ -516,6 +537,5 @@
         margin-top: 14px !important;
         font-size: 13px !important;
     }
-
 
     
