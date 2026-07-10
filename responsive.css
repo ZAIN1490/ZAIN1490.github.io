@@ -230,7 +230,7 @@
     }
 
     /* ==========================================
-       7. REDESIGNED PROJECTS CAROUSEL FOR MOBILE
+       7. ULTRA-MINIMALIST NO-IMAGE CAROUSEL FOR MOBILE
        ========================================== */
     #projects {
         padding: 40px 16px;
@@ -269,7 +269,7 @@
         margin-top: 10px;
     }
 
-    /* THE SWIPER CONTAINER */
+    /* SWIPER CONTAINER */
     .projects-container {
         display: flex !important;
         flex-direction: row !important; 
@@ -286,44 +286,50 @@
         display: none;                  
     }
 
-    /* SWIPER CARDS: Polished typography alignment */
+    /* THE CARD: Image hidden, height compressed, CSS counter added */
     .project-card { 
         flex: 0 0 88% !important;       
         scroll-snap-align: start;
         display: flex !important;
         flex-direction: column !important; 
-        align-items: flex-start !important; /* FIXED: Keeps structural layout items tidy */
-        text-align: left !important;        /* FIXED: Makes reading descriptions seamless and premium */
-        padding: 16px !important;           /* Optimized inner space bounds */
+        align-items: flex-start !important; 
+        text-align: left !important;        
+        padding: 24px 20px !important;    /* Clean spacing inside the card */
         background: #ffffff;
-        border-radius: 20px;
-        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+        border-radius: 24px;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
         box-sizing: border-box;
+        position: relative;               /* Anchor context for our watermark index */
     }
 
-    /* FIXED: Takes up full width of the card now */
+    /* STEP 1: HIDE THE PROJECT IMAGE COMPLETELY FOR ULTRA-COMPACT COMFORT */
     .project-image-wrapper { 
-        width: 100% !important;
-        max-width: 100% !important;
-        height: auto !important;
-        margin-bottom: 16px !important;
+        display: none !important;
     }
 
-    .project-image-wrapper img {
-        width: 100% !important;
-        height: auto !important;
-        border-radius: 14px;
-        display: block;
-        object-fit: cover;
+    /* STEP 2: INJECT PREMIUM MONOSPACED INDEXES TO DIFFERENTIATE CARDS */
+    .projects-container {
+        counter-reset: project-counter; /* Starts counter sequence */
+    }
+
+    .project-card::before {
+        counter-increment: project-counter;
+        content: "0" counter(project-counter); /* Generates 01, 02, 03... automatically */
+        position: absolute;
+        top: 20px;
+        right: 24px;
+        font-size: 24px;
+        font-weight: 800;
+        font-family: 'Courier New', Courier, monospace; /* Clean tech style */
+        color: #e2e8f0; /* Soft minimalist watermark */
+        letter-spacing: -0.5px;
     }
 
     .project-info-wrapper { 
         width: 100% !important;
         box-sizing: border-box;
-        padding: 0 4px; /* Tiny internal text padding */
     }
 
-    /* Frontend badge positioning */
     .project-info-wrapper span {
         display: inline-block;
         margin-bottom: 4px;
@@ -332,7 +338,8 @@
     .project-info-wrapper h3 {
         font-size: 19px !important;
         font-weight: 700 !important;
-        margin: 6px 0 !important;
+        margin: 4px 0 8px 0 !important;
+        max-width: 80%; /* Leaves space so text never collides with the watermark number */
         color: #1e293b;
     }
 
@@ -343,14 +350,14 @@
         margin-bottom: 14px !important;
     }
 
-    /* FIXED: HTML/CSS/JS tech items in a tight, left-aligned horizontal row */
+    /* HTML/CSS/JS ROW STAYING SIDE-BY-SIDE WITHOUT EXTRA HEIGHT */
     .project-tech-stack,
     .project-info-wrapper div,
     .project-card [class*="tech"] {
         display: flex !important;
         flex-direction: row !important;     
         flex-wrap: nowrap !important;        
-        justify-content: flex-start !important; /* Left-aligned to sync with the text paragraph */
+        justify-content: flex-start !important; 
         align-items: center !important;
         gap: 12px !important;
         margin: 12px 0 !important;         
@@ -363,15 +370,15 @@
         white-space: nowrap !important;
     }
 
-    /* ACTION LINKS AT THE BOTTOM */
+    /* ACTION LINKS CONTAINER */
     .project-links-container,
     .project-card [class*="links"] { 
         display: flex !important;
         flex-direction: row !important;
-        justify-content: space-between !important; /* Spreads out evenly to anchor left and right */
+        justify-content: space-between !important; 
         border-top: 1px solid #f1f5f9;
         padding-top: 14px !important;
-        margin-top: auto !important; 
+        margin-top: 12px !important; /* Brought closer up due to image drop */
         width: 100% !important;
     }
 
