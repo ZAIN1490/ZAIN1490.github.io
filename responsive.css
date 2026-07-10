@@ -569,3 +569,106 @@
         border-top: 1px solid #f1f5f9;
         padding-top: 12px;
     }
+
+
+    /* ==========================================
+       9. CONTACT SECTION MOBILE OPTIMIZATION
+       ========================================== */
+    #contact {
+        padding: 40px 16px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Give the header wrapper full width and left alignment */
+    .contact-header {
+        width: 100% !important;
+        max-width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+        padding: 0 !important;
+        margin: 0 0 28px 0 !important;
+    }
+
+    /* FORCE HIDE: Remove the small top contact badge */
+    .contact-header .badge {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Force the main heading to stretch completely across the left edge */
+    .contact-header h2 {
+        font-size: 2rem !important;
+        line-height: 1.2 !important;
+        letter-spacing: -0.5px !important;
+        margin: 0 0 12px 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        text-align: left !important;
+    }
+
+    /* Force description text to stretch full width */
+    .contact-header p {
+        font-size: 15px !important;
+        line-height: 1.6 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        text-align: left !important;
+        color: #475569;
+    }
+
+    /* STACK CARDS VERTICALLY: Changes the parent layout from 2-columns to 1-column */
+    .contact-card {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+        width: 100% !important;
+        background: transparent !important; /* Removes any double backgrounds if present */
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Get In Touch Card Wrapper */
+    .contact-left {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 24px 20px !important;
+        background: #ffffff !important;
+        border-radius: 24px !important;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04) !important;
+    }
+
+    /* Digital Wizard Channel Card Wrapper */
+    .contact-right {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 24px 20px !important;
+        background: #ffffff !important;
+        border-radius: 24px !important;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04) !important;
+    }
+
+    /* Make buttons expand elegantly on mobile */
+    .contact-buttons a, 
+    .primary-btn,
+    .youtube-btn {
+        width: 100% !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+    }
+
+    /* FOOTER CLEANUP */
+    footer {
+        padding: 24px 16px !important;
+        text-align: center !important;
+        font-size: 13px !important;
+    }
+
