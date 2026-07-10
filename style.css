@@ -992,25 +992,6 @@ h1 {
     background-color: #1f2937;
 }
 
-/* ==========================================
-   12. MINIMALIST BASE FOOTER
-   =====================================
-footer {
-    width: 100%;
-    padding: 40px 20px;
-    text-align: center;
-    border-top: 1px solid #f1f5f9; /* Subtle divider line */
-    background: #ffffff; 
-    box-sizing: border-box;
-}
-
-footer p {
-    font-size: 14px;
-    color: #64748b; /* Sleek, muted slate gray text */
-    font-weight: 500;
-    letter-spacing: -0.2px;
-    margin: 0;
-}
 
 html{
     scroll-padding-top: 120px;
@@ -1430,4 +1411,25 @@ h1 {
 
     z-index:1100;
 
+}
+
+/* ==========================================
+   12. MINIMALIST BASE FOOTER
+   =====================================
+footer {
+    width: 100%;
+    padding: 40px 24px;
+    text-align: center; /* Centers the text perfectly on all screens */
+    background: #ffffff; 
+    border-top: 1px solid #f1f5f9; /* Adds a clean, subtle separator line */
+    box-sizing: border-box;
+    margin-top: 60px; /* Gives breathing room below your contact cards */
+}
+
+footer p {
+    font-size: 14px;
+    color: #64748b; /* Soft gray color to match your minimalist aesthetic */
+    font-weight: 500;
+    letter-spacing: -0.2px;
+    margin: 0;
 }
