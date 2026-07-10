@@ -501,32 +501,50 @@
         flex: 0 0 auto !important; 
     }
 
-    /* CERTIFICATES STACK: Clean single-column layout on mobile devices */
+    
+    /* CERTIFICATES CAROUSEL: Converts the vertical stack into a sleek horizontal slider */
     .certificates-grid {
         display: flex !important;
-        flex-direction: column !important;
+        flex-direction: row !important; /* Forces cards into a single row */
+        overflow-x: auto !important;     /* Enables horizontal swiping */
+        scroll-snap-type: x mandatory;   /* Snaps cleanly to each card */
         gap: 16px !important;
+        padding: 8px 4px 24px 4px !important;
         width: 100% !important;
+        box-sizing: border-box !important;
+        scrollbar-width: none;           /* Hides scrollbar on Firefox */
+        -webkit-overflow-scrolling: touch;
     }
 
+    .certificates-grid::-webkit-scrollbar {
+        display: none;                   /* Hides scrollbar on Chrome/Safari */
+    }
+
+    /* THE CERTIFICATE CARD: Optimized for the horizontal track */
     .cert-card {
-        width: 100% !important;
-        max-width: 100% !important;
+        flex: 0 0 86% !important;        /* Keeps the card wide enough, showing a peek of the next one */
+        scroll-snap-align: start;
+        width: auto !important;
         margin: 0 !important;
-        padding: 16px !important;
+        padding: 20px !important;
         box-sizing: border-box !important;
         display: flex !important;
         flex-direction: column !important;
         align-items: flex-start !important;
+        background: #ffffff;
+        border-radius: 24px;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
     }
 
+    /* The visual block inside the card */
     .cert-icon-container {
         width: 100% !important;
         height: 150px !important; 
-        margin-bottom: 14px !important;
+        margin-bottom: 16px !important;
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
+        border-radius: 16px;
     }
 
     .cert-details {
@@ -539,6 +557,7 @@
         font-weight: 700 !important;
         line-height: 1.4 !important;
         margin: 6px 0 !important;
+        color: #1e293b;
     }
 
     .cert-card-footer {
@@ -546,5 +565,7 @@
         justify-content: space-between !important;
         align-items: center !important;
         width: 100% !important;
-        margin-top: 12px !important;
+        margin-top: 14px !important;
+        border-top: 1px solid #f1f5f9;
+        padding-top: 12px;
     }
