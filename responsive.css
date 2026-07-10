@@ -411,4 +411,111 @@
     }
 
 
+    /* ==========================================
+       8. CERTIFICATES SECTION MOBILE OPTIMIZATION
+       ========================================== */
+    #certificates {
+        padding: 40px 16px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Stacks header text and the stat card vertically */
+    .certificates-container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 24px !important;
+        width: 100% !important;
+    }
+
+    .certificates-left {
+        width: 100% !important;
+    }
+
+    .certificates-left h2 {
+        font-size: 2rem !important;
+        line-height: 1.2 !important;
+        letter-spacing: -0.5px !important;
+        margin-bottom: 12px !important;
+    }
+
+    /* Centers and scales the "Certificates Earned" card on mobile */
+    .certificates-badge-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 20px !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+    }
+
+    /* FILTER TABS: Allows horizontal scrolling if categories exceed screen width */
+    .certificate-filters {
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        gap: 8px !important;
+        padding: 4px 4px 16px 4px !important;
+        margin: 24px 0 !important;
+        width: 100% !important;
+        scrollbar-width: none; /* Hides default scrollbar for a clean look */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .certificate-filters::-webkit-scrollbar {
+        display: none;
+    }
+
+    .filter-btn {
+        padding: 8px 16px !important;
+        font-size: 13px !important;
+        flex: 0 0 auto !important; /* Prevents buttons from squeezing/shrinking */
+    }
+
+    /* CERTIFICATE CARDS GRID: Changes from a 3-column desktop layout to a perfect 1-column stack */
+    .certificates-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+        width: 100% !important;
+    }
+
+    .certificate-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 20px !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+    }
+
+    /* The visual media slot inside the card */
+    .certificate-media-placeholder,
+    .certificate-img-wrapper {
+        width: 100% !important;
+        height: 160px !important; /* Keeps a neat proportions box on mobile */
+        margin-bottom: 16px !important;
+    }
+
+    .certificate-card h3 {
+        font-size: 17px !important;
+        font-weight: 700 !important;
+        line-height: 1.4 !important;
+        margin: 6px 0 !important;
+    }
+
+    .certificate-card .meta-info {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin-top: 14px !important;
+        font-size: 13px !important;
+    }
+
+
     
