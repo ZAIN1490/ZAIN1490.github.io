@@ -234,87 +234,121 @@ body.no-scroll {
     }
 }
 
+
+
+
     /* ==========================================
-       7. PROJECTS SECTION MOBILE CONFIGURATION
+       7. PROJECTS SECTION MOBILE (EXACT MATCH)
        ========================================== */
     #projects {
-        padding: 60px 20px 40px;
+        padding: 40px 16px;
     }
 
-    /* Stack the section intro header and the stats card vertically */
-    .projects-header-container { /* Replace with your actual parent wrapper class if different */
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-        margin-bottom: 40px;
-    }
-
-    /* Make the stats badge span cleanly on mobile */
-    .stats-card-class { /* Replace with your actual 4+ card class name */
-        width: 100%;
-        max-width: 100%;
-        padding: 24px;
-        text-align: center;
-    }
-
-    /* Convert individual project row items into vertical column blocks */
-    .project-card { /* Replace with your actual project card container class name */
+    /* Keep the header elements stacked cleanly */
+    .projects-container { 
         display: flex;
         flex-direction: column;
         gap: 20px;
-        padding: 20px;
-        margin-bottom: 24px;
-        border-radius: 20px;
     }
 
-    /* Force the project image wrapper to take full top width */
-    .project-image-wrapper { /* Replace with your actual project image container class name */
+    /* 4+ Projects Badge Card centered */
+    .projects-badge-card { /* Replace with your actual badge class if different */
         width: 100%;
-        height: auto;
+        padding: 20px;
+        text-align: center;
+        border-radius: 16px;
+    }
+
+    /* THE CARD: Keep row direction so image stays on the left and text on the right */
+    .project-card { /* Replace with your actual card class name */
+        display: flex;
+        flex-direction: row !important; /* Forces it to stay side-by-side */
+        align-items: center;
+        gap: 16px;
+        padding: 16px;
+        margin-bottom: 16px;
+        border-radius: 16px;
+        background: #ffffff;
+    }
+
+    /* Left Side: Image scaling container */
+    .project-image-wrapper { /* Replace with your actual image wrapper class */
+        flex: 1;
+        min-width: 40%; /* Allocates perfect left-side space for the preview */
+        max-width: 45%;
     }
 
     .project-image-wrapper img {
         width: 100%;
         height: auto;
-        border-radius: 12px;
-        object-fit: cover;
+        display: block;
+        object-fit: contain;
     }
 
-    /* Project text content details spacing adjustment */
-    .project-info-wrapper { /* Replace with your actual project text container class name */
-        width: 100%;
-        padding: 0 4px;
-    }
-
-    /* Adjust typography sizing slightly for smaller phone displays */
-    .project-info-wrapper h3 {
-        font-size: 20px;
-        margin: 8px 0;
-    }
-
-    /* Make action links grid intuitive and touch-friendly */
-    .project-links-container { /* Replace with your actual links footer element class name */
+    /* Right Side: Text info box */
+    .project-info-wrapper { /* Replace with your actual info wrapper class */
+        flex: 1.2;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-top: 1px solid #f1f5f9;
-        padding-top: 16px;
-        margin-top: 20px;
-    }
-
-    .project-links-container a {
-        font-size: 14px;
-        font-weight: 600;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-    }
-
-    /* Center and scale the main "View More Projects" button base */
-    .view-more-btn-class { /* Replace with your actual purple main button class name */
-        width: 100%;
-        max-width: 280px;
-        margin: 20px auto 0;
-        display: flex;
+        flex-direction: column;
         justify-content: center;
     }
+
+    /* Tag adjustments (Frontend / Web Development) */
+    .project-tag { 
+        font-size: 10px;
+        padding: 2px 8px;
+        align-self: flex-start;
+        margin-bottom: 4px;
+    }
+
+    /* Project Titles scaled down for mobile row fit */
+    .project-info-wrapper h3 {
+        font-size: 15px;
+        font-weight: 700;
+        margin: 4px 0;
+        line-height: 1.3;
+    }
+
+    /* Description paragraph text */
+    .project-info-wrapper p {
+        font-size: 12px;
+        line-height: 1.4;
+        color: #475569;
+        margin-bottom: 6px;
+    }
+
+    /* Tech Stack row (HTML, CSS, JS icons/text) */
+    .project-tech-stack { 
+        display: flex;
+        gap: 8px;
+        font-size: 11px;
+        color: #64748b;
+        margin-bottom: 12px;
+    }
+
+    /* Bottom Action Links (Live Demo / View Code) */
+    .project-links { 
+        display: flex;
+        justify-content: flex-start;
+        gap: 16px;
+        border-top: 1px solid #f1f5f9;
+        padding-top: 10px;
+    }
+
+    .project-links a {
+        font-size: 12px;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    /* Main View More Projects Button */
+    .view-more-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 16px;
+    }
+
+
