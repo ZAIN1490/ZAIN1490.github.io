@@ -234,120 +234,126 @@ body.no-scroll {
     }
 
 
-  /* 7. PROJECTS SECTION — MOBILE REDESIGN */
-.projects-header {
-    flex-direction: column;
-    gap: 16px;
-    text-align: left;
-}
+    /* ==========================================
+       7. REDESIGNED PROJECTS CAROUSEL FOR MOBILE
+       ========================================== */
+    #projects {
+        padding: 40px 16px;
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
 
-.header-left .badge {
-    font-size: 12px;
-}
+    /* Stack header text on top, badge card underneath */
+    .projects-header-container { 
+        display: flex;
+        flex-direction: column !important;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+        margin-bottom: 28px;
+    }
 
-.header-left h1 {
-    font-size: 1.6rem;
-    line-height: 1.3;
-}
+    .projects-text-wrapper {
+        width: 100%;
+        text-align: left;
+    }
 
-.header-left p {
-    font-size: 14px;
-}
+    /* Centers the 4+ badge card on its own row */
+    .projects-badge-card { 
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
 
-.header-right-card {
-    width: 100%;
-    flex-direction: row;
-    align-items: center;
-    gap: 14px;
-    padding: 14px 18px;
-}
+    /* THE FIX: Turn the main project grid container into a swiper container */
+    .projects-container {
+        display: flex !important;
+        flex-direction: row !important; /* Side-by-side scrolling cards */
+        overflow-x: auto !important;     /* Enables touch swipe swipe sliding */
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding: 8px 4px 24px;
+        width: 100%;
+        box-sizing: border-box;
+        scrollbar-width: none;          /* Hides ugly desktop scrollbars on Firefox */
+    }
 
-.header-right-card .card-icon {
-    width: 36px;
-    height: 36px;
-    font-size: 16px;
-}
+    .projects-container::-webkit-scrollbar {
+        display: none;                  /* Hides scrollbars on Chrome, Safari & Opera */
+    }
 
-.header-right-card h2 {
-    font-size: 1.5rem;
-    margin: 0;
-}
+    /* SWIPER CARDS: Fully constrained, content-friendly vertical block sizing */
+    .project-card { 
+        flex: 0 0 88% !important;       /* Fits perfectly without hanging off horribly */
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column !important; /* Move image upwards for an app-like card look */
+        padding: 16px;
+        background: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+        box-sizing: border-box;
+    }
 
-.header-right-card .card-title {
-    font-size: 13px;
-}
+    /* Image wrapper sized beautifully on top */
+    .project-image-wrapper { 
+        width: 100%;
+        height: 160px;
+        margin-bottom: 14px;
+    }
 
-.header-right-card .card-subtitle {
-    display: none; /* remove the "and many more" line to save space */
-}
+    .project-image-wrapper img {
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
+        object-fit: cover;
+        display: block;
+    }
 
-.project-card {
-    flex-direction: column;
-    padding: 0;
-    overflow: hidden;
-    border-radius: 16px;
-}
+    /* Description and information text adjustments */
+    .project-info-wrapper { 
+        width: 100%;
+        box-sizing: border-box;
+    }
 
-.project-image {
-    width: 100%;
-    margin: 0;
-}
+    .project-info-wrapper h3 {
+        font-size: 17px;
+        margin: 4px 0 6px 0;
+        color: #1e293b;
+    }
 
-.project-image img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 0; /* image now touches card edges at top */
-}
+    .project-info-wrapper p {
+        font-size: 13px;
+        line-height: 1.5;
+        color: #475569;
+        margin-bottom: 12px;
+    }
 
-.project-badge {
-    display: none; /* removed per your request */
-}
+    /* Inline row touch target buttons */
+    .project-links-container { 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid #f1f5f9;
+        padding-top: 12px;
+        margin-top: auto; /* Pushes links to the absolute bottom of the card smoothly */
+        width: 100%;
+    }
 
-.project-content {
-    padding: 16px 18px 18px;
-}
+    .project-links-container a {
+        font-size: 13px;
+        font-weight: 600;
+    }
 
-.project-content h3 {
-    font-size: 18px;
-    margin-top: 4px;
-}
+    /* Central button spacer mapping wrapper */
+    .view-more-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 12px;
+    }
 
-.project-desc {
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-.tech-stack {
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 12px 0;
-}
-
-.tech-item {
-    font-size: 12px;
-}
-
-.project-links {
-    display: flex;
-    gap: 10px;
-    padding-top: 14px;
-    border-top: 1px solid #f1f5f9;
-    margin-top: 8px;
-}
-
-.btn-live, .btn-code {
-    flex: 1;
-    text-align: center;
-    justify-content: center;
-    padding: 10px 0;
-    font-size: 13px;
-    border-radius: 10px;
-}
-
-.btn-view-more {
-    width: 100%;
-    justify-content: center;
-}
 }
         
