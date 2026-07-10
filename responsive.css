@@ -234,91 +234,96 @@ body.no-scroll {
     }
 }
 
-        /* ==========================================
-       7. PROJECTS SECTION MOBILE (EXACT MATCH)
-       ========================================== */
-    #projects {
-        padding: 40px 16px;
-        width: 100%;
-        box-sizing: border-box;
-    }
+        
+/* ==========================================
+   7. PROJECTS SECTION MOBILE
+   ========================================== */
 
-    /* MATCHES YOUR IMAGE: Forces Heading on top, Badge underneath */
-    .projects-header-container { /* Replace with your main parent section/wrapper class */
-        display: flex;
-        flex-direction: column !important;
-        align-items: center; /* Centers the elements vertically stacked */
-        text-align: left;    /* Keeps your heading text left-aligned */
-        width: 100%;
-        gap: 24px;
-        margin-bottom: 32px;
-    }
+#projects{
+    padding:40px 18px;
+}
 
-    /* Ensure the text content wrapper takes full width */
-    .projects-text-wrapper { /* Replace with the wrapper around your h2 and p if you have one */
-        width: 100%;
-    }
+/* Heading then badge */
+.projects-header-container{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+}
 
-    /* MATCHES YOUR IMAGE: Centers the 4+ badge card on its own row */
-    .projects-badge-card { /* Replace with your actual purple 4+ badge card class name */
-        width: 100%;
-        max-width: 100%;
-        display: block;
-        text-align: center;
-        box-sizing: border-box;
-    }
+.projects-text-wrapper,
+.projects-badge-card{
+    width:100%;
+}
 
-    /* THE CARD: Stacks the image upward to perfectly fit mobile widths */
-    .project-card { /* Replace with your actual project card container class name */
-        display: flex;
-        flex-direction: column !important; 
-        width: 100%;
-        max-width: 100%;
-        padding: 20px;
-        margin-bottom: 24px;
-        border-radius: 20px;
-        background: #ffffff;
-        box-sizing: border-box; /* Crucial: Prevents card from spilling out of mobile width */
-    }
+.projects-badge-card{
+    max-width:100%;
+}
 
-    /* Image wrapper takes full width on top */
-    .project-image-wrapper { /* Replace with your image container class */
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        margin-bottom: 12px;
-    }
+/* Project Card */
+.project-card{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    padding:18px;
+    margin-bottom:24px;
+    border-radius:20px;
+    overflow:hidden;
+}
 
-    .project-image-wrapper img {
-        width: 100%;
-        height: auto;
-        border-radius: 12px;
-        display: block;
-        object-fit: cover;
-    }
+/* Screenshot */
+.project-image-wrapper{
+    width:100%;
+    height:180px;        /* Fixed height looks much cleaner */
+    margin-bottom:16px;
+}
 
-    /* Info details row */
-    .project-info-wrapper { /* Replace with your text content container class */
-        width: 100%;
-        padding: 0 4px;
-        box-sizing: border-box;
-    }
+.project-image-wrapper img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:14px;
+}
 
-    .project-info-wrapper h3 {
-        font-size: 18px;
-        margin: 8px 0;
-    }
+/* Text */
+.project-info-wrapper{
+    width:100%;
+    padding:0;
+}
 
-    /* Links row split tracking */
-    .project-links-container { /* Replace with your link row container class */
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-top: 1px solid #f1f5f9;
-        padding-top: 16px;
-        margin-top: 20px;
-        width: 100%;
-    }
+.project-info-wrapper h3{
+    font-size:1.35rem;
+    margin:8px 0;
+}
+
+.project-info-wrapper p{
+    font-size:.95rem;
+    line-height:1.6;
+    margin-bottom:16px;
+}
+
+/* Tech stack */
+.project-tech-stack{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:18px;
+}
+
+/* Buttons */
+.project-links-container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    border-top:1px solid #eef2f7;
+    padding-top:18px;
+}
+
+.project-links-container a{
+    flex:1;
+    text-align:center;
+    padding:12px 0;
+}
 
     /* Main "View More Projects" purple button wrapping control */
     .view-more-container {
