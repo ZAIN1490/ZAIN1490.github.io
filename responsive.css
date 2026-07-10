@@ -665,11 +665,12 @@
         box-sizing: border-box !important;
     }
 
-    /* FOOTER CLEANUP */
+        /* FOOTER CLEANUP */
     footer {
-        padding: 24px 16px !important;
-        text-align: center !important;
-        font-size: 13px !important;
+        width: 92% !important; /* Matches mobile padding specs for cards */
+        padding: 20px 0 !important;
+        margin: 20px auto 40px !important;
     }
+
 }
 
