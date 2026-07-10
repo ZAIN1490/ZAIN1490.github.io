@@ -232,7 +232,6 @@ body.no-scroll {
     .logo-box span {
         font-size: 11px;
     }
-}
 
 
 .projects-header {
@@ -290,5 +289,7 @@ body.no-scroll {
 .btn-view-more {
     width: 100%;
     justify-content: center;
+}
+
 }
         
