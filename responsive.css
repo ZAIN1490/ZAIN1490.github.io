@@ -244,6 +244,14 @@ body.no-scroll {
         overflow: hidden;
     }
 
+.projects-header h2 {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.5px !important;
+    margin-bottom: 12px !important;
+}
+
+
     /* Stack header text on top, badge card underneath */
     .projects-header-container { 
         display: flex;
