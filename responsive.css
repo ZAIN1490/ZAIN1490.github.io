@@ -1,4 +1,4 @@
-/* ==========================================
+90/* ==========================================
    MOBILE RESPONSIVE OVERRIDES (max-width: 768px)
    ========================================== */
 @media screen and (max-width: 768px) {
@@ -410,7 +410,7 @@
         margin-top: 12px;
     }
 
-    /* ==========================================
+        /* ==========================================
        8. CERTIFICATES SECTION MOBILE OPTIMIZATION
        ========================================== */
     #certificates {
@@ -419,17 +419,19 @@
         box-sizing: border-box;
     }
 
-    /* Stack layout cleanly */
-    .certificates-container {
+    /* Stacks the container elements cleanly */
+    .cert-hero-container {
         display: flex !important;
         flex-direction: column !important;
         align-items: flex-start !important;
-        gap: 20px !important;
+        gap: 16px !important;
         width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
 
-    /* 100% Full Width Text Container - No Badges */
-    .certificates-left {
+    /* 100% Full Width Hero Left Text Wrapper */
+    .cert-hero-left {
         width: 100% !important;
         max-width: 100% !important;
         display: flex !important;
@@ -440,52 +442,56 @@
         margin: 0 !important;
     }
 
-    /* Completely hide the section badge as requested */
-    .certificates-left .section-badge,
-    #certificates .section-badge {
+    /* FORCE HIDE: The upper badge and the massive desktop right counter box */
+    .cert-hero-left .badge,
+    .cert-hero-right,
+    .counter-card {
         display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        width: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
 
-    /* Main Heading taking up 100% of the view width */
-    .certificates-left h2 {
+    /* Main Title Heading taking up 100% space flush to the left edge */
+    h2.cert-title {
         font-size: 2rem !important;
         line-height: 1.2 !important;
         letter-spacing: -0.5px !important;
         margin: 0 0 12px 0 !important; 
         padding: 0 !important;
         width: 100% !important;
+        text-align: left !important;
     }
 
-    /* Paragraph Text taking up 100% of the view width */
-    .certificates-left p {
+    /* Subtitle Description taking up 100% space flush to the left edge */
+    p.cert-subtitle {
         font-size: 15px !important;
         line-height: 1.6 !important;
         margin: 0 !important;
         padding: 0 !important;
         width: 100% !important;
+        text-align: left !important;
         color: #475569;
     }
 
-    /* Hide the large desktop desktop badge card completely if we want text-only style */
-    .certificates-badge-card {
-        display: none !important;
-    }
-
-    /* FILTER TABS: Smooth horizontal sliding row */
-    .certificate-filters {
+    /* FILTER TABS ROW: Clean layout horizontal scrolling track */
+    .filter-container {
         display: flex !important;
         flex-direction: row !important;
         overflow-x: auto !important;
         white-space: nowrap !important;
         gap: 8px !important;
         padding: 4px 0 16px 0 !important;
-        margin: 20px 0 !important;
+        margin: 24px 0 12px 0 !important;
         width: 100% !important;
         scrollbar-width: none; 
         -webkit-overflow-scrolling: touch;
     }
 
-    .certificate-filters::-webkit-scrollbar {
+    .filter-container::-webkit-scrollbar {
         display: none;
     }
 
@@ -495,47 +501,50 @@
         flex: 0 0 auto !important; 
     }
 
-    /* CERTIFICATE CARDS GRID: 1-Column Stack */
+    /* CERTIFICATES STACK: Clean single-column layout on mobile devices */
     .certificates-grid {
         display: flex !important;
         flex-direction: column !important;
-        gap: 20px !important;
+        gap: 16px !important;
         width: 100% !important;
     }
 
-    .certificate-card {
+    .cert-card {
         width: 100% !important;
         max-width: 100% !important;
         margin: 0 !important;
-        padding: 20px !important;
+        padding: 16px !important;
         box-sizing: border-box !important;
         display: flex !important;
         flex-direction: column !important;
         align-items: flex-start !important;
-        text-align: left !important;
     }
 
-    .certificate-media-placeholder,
-    .certificate-img-wrapper {
+    .cert-icon-container {
         width: 100% !important;
-        height: 160px !important; 
-        margin-bottom: 16px !important;
+        height: 150px !important; 
+        margin-bottom: 14px !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
     }
 
-    .certificate-card h3 {
-        font-size: 17px !important;
+    .cert-details {
+        width: 100% !important;
+        padding: 0 !important;
+    }
+
+    h4.cert-card-title {
+        font-size: 16px !important;
         font-weight: 700 !important;
         line-height: 1.4 !important;
         margin: 6px 0 !important;
     }
 
-    .certificate-card .meta-info {
+    .cert-card-footer {
         display: flex !important;
         justify-content: space-between !important;
         align-items: center !important;
         width: 100% !important;
-        margin-top: 14px !important;
-        font-size: 13px !important;
+        margin-top: 12px !important;
     }
-
-    
