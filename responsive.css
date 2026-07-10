@@ -269,8 +269,8 @@
         margin-top: 10px;
     }
 
-    /* SWIPER CONTAINER */
-    .projects-container {
+    /* CAROUSEL HORIZONTAL CONTAINER */
+    .projects-list {
         display: flex !important;
         flex-direction: row !important; 
         overflow-x: auto !important;     
@@ -280,13 +280,14 @@
         width: 100%;
         box-sizing: border-box;
         scrollbar-width: none;          
+        counter-reset: project-counter; 
     }
 
-    .projects-container::-webkit-scrollbar {
+    .projects-list::-webkit-scrollbar {
         display: none;                  
     }
 
-    /* THE CARD: Image hidden, height compressed, CSS counter added */
+    /* THE CARD */
     .project-card { 
         flex: 0 0 88% !important;       
         scroll-snap-align: start;
@@ -294,95 +295,92 @@
         flex-direction: column !important; 
         align-items: flex-start !important; 
         text-align: left !important;        
-        padding: 24px 20px !important;    /* Clean spacing inside the card */
+        padding: 24px 20px !important;    
         background: #ffffff;
         border-radius: 24px;
         box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
         box-sizing: border-box;
-        position: relative;               /* Anchor context for our watermark index */
+        position: relative;               
     }
 
-    /* STEP 1: HIDE THE PROJECT IMAGE COMPLETELY FOR ULTRA-COMPACT COMFORT */
-    .project-image-wrapper { 
+    /* EXACT HTML CLASS MATCH: Completely deletes the image wrapper block */
+    .project-card .project-image { 
         display: none !important;
     }
 
-    /* STEP 2: INJECT PREMIUM MONOSPACED INDEXES TO DIFFERENTIATE CARDS */
-    .projects-container {
-        counter-reset: project-counter; /* Starts counter sequence */
-    }
-
+    /* PREMIUM WATERMARK BRANDING INDEX */
     .project-card::before {
         counter-increment: project-counter;
-        content: "0" counter(project-counter); /* Generates 01, 02, 03... automatically */
+        content: "0" counter(project-counter); 
         position: absolute;
-        top: 20px;
+        top: 22px;
         right: 24px;
         font-size: 24px;
         font-weight: 800;
-        font-family: 'Courier New', Courier, monospace; /* Clean tech style */
-        color: #e2e8f0; /* Soft minimalist watermark */
+        font-family: 'Courier New', Courier, monospace; 
+        color: #cbd5e1; 
         letter-spacing: -0.5px;
+        z-index: 10;
+        opacity: 0.7;
     }
 
-    .project-info-wrapper { 
+    .project-content { 
         width: 100% !important;
         box-sizing: border-box;
     }
 
-    .project-info-wrapper span {
+    .project-badge {
         display: inline-block;
-        margin-bottom: 4px;
+        margin-bottom: 6px;
     }
 
-    .project-info-wrapper h3 {
+    .project-card h3 {
         font-size: 19px !important;
         font-weight: 700 !important;
-        margin: 4px 0 8px 0 !important;
-        max-width: 80%; /* Leaves space so text never collides with the watermark number */
+        margin: 4px 0 10px 0 !important;
+        max-width: 80%; 
         color: #1e293b;
     }
 
-    .project-info-wrapper p {
+    .project-desc {
         font-size: 14px !important;
         line-height: 1.5 !important;
         color: #475569;
         margin-bottom: 14px !important;
     }
 
-    /* HTML/CSS/JS ROW STAYING SIDE-BY-SIDE WITHOUT EXTRA HEIGHT */
-    .project-tech-stack,
-    .project-info-wrapper div,
-    .project-card [class*="tech"] {
+    /* EXACT MATCH FOR HTML: Horizontal single-line stack tag format */
+    .project-card .tech-stack {
         display: flex !important;
         flex-direction: row !important;     
         flex-wrap: nowrap !important;        
         justify-content: flex-start !important; 
         align-items: center !important;
         gap: 12px !important;
-        margin: 12px 0 !important;         
+        margin: 14px 0 !important;         
         width: 100% !important;
     }
 
-    .project-card [class*="tech"] span,
-    .project-card .project-tech-stack span {
+    .project-card .tech-item {
         font-size: 13px !important;
         white-space: nowrap !important;
+        display: flex !important;
+        align-items: center;
+        gap: 5px;
     }
 
-    /* ACTION LINKS CONTAINER */
-    .project-links-container,
-    .project-card [class*="links"] { 
+    /* EXACT MATCH FOR HTML: Links styling */
+    .project-card .project-links { 
         display: flex !important;
         flex-direction: row !important;
         justify-content: space-between !important; 
         border-top: 1px solid #f1f5f9;
         padding-top: 14px !important;
-        margin-top: 12px !important; /* Brought closer up due to image drop */
+        margin-top: 12px !important; 
         width: 100% !important;
     }
 
-    .project-links-container a {
+    .project-card .project-links a {
         font-size: 14px !important;
         font-weight: 600;
     }
@@ -394,4 +392,3 @@
         margin-top: 12px;
     }
 }
-
