@@ -1414,21 +1414,21 @@ h1 {
 }
 
 /* ==========================================
-   12. MINIMALIST BASE FOOTER
-   =====================================
+   12. MINIMALIST BASE FOOTER (ONE-LINE)
+   ========================================== */
 footer {
-    width: 100%;
-    padding: 40px 24px;
-    text-align: center; /* Centers the text perfectly on all screens */
-    background: #ffffff; 
-    border-top: 1px solid #f1f5f9; /* Adds a clean, subtle separator line */
+    width: 84%; /* Matches the exact layout width of your contact section */
+    max-width: 1200px;
+    margin: 40px auto 60px; /* Centered, with ample breathing room at the bottom */
+    padding-top: 24px;
+    border-top: 1px solid #eef2f7; /* Soft, subtle separator line */
+    text-align: center;
     box-sizing: border-box;
-    margin-top: 60px; /* Gives breathing room below your contact cards */
 }
 
 footer p {
     font-size: 14px;
-    color: #64748b; /* Soft gray color to match your minimalist aesthetic */
+    color: #64748b; /* Soft slate gray color matching your body copy */
     font-weight: 500;
     letter-spacing: -0.2px;
     margin: 0;
