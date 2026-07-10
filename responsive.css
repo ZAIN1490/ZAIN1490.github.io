@@ -33,7 +33,7 @@
     .navbar-wrapper {
         padding-top: 12px;
         padding-bottom: 8px;
-        position: relative; /* Provides the anchor context for absolute styling */
+        position: relative; 
     }
 
     .navbar {
@@ -53,7 +53,6 @@
         display: flex !important;
     }
 
-    /* Hide the standalone desktop social row from header container space */
     .navbar > .social-icons {
         display: none;
     }
@@ -82,12 +81,12 @@
         right: -100%;
         width: 85%;
         max-width: 340px;
-        height: 80vh;                      /* CHANGED: Cuts off height dynamically */
+        height: 80vh;                      
         background-color: #ffffff;
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        padding: 100px 24px 90px;          /* CHANGED: Custom bottom padding accommodates icons cleanly */
+        padding: 100px 24px 90px;          
         gap: 0;
         box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -98,7 +97,6 @@
         right: 0;
     }
 
-    /* Drawer Item UI Architecture matching your wireframe design */
     ul.nav-links li {
         width: 100%;
         height: auto;
@@ -118,7 +116,6 @@
         position: relative;
     }
 
-    /* Target standard font-awesome icons to match design scale */
     ul.nav-links li a i {
         font-size: 18px;
         color: #64748b;
@@ -126,7 +123,6 @@
         text-align: center;
     }
 
-    /* Right-facing chevron indicator injected via pure CSS */
     ul.nav-links li a::after {
         content: "\f105";
         font-family: "Font Awesome 6 Free";
@@ -148,22 +144,21 @@
         color: #4f46e5;
     }
 
-    /* 4. SOCIAL ICONS - LOCATED IN THE BLUE SHADED ZONE */
+    /* 4. SOCIAL ICONS IN DRAWER */
     .navbar-wrapper .social-icons {
         position: fixed;
-        top: 310px;                        /* Fixed position right in your blue box zone */
-        right: -100%;                      /* Matches nav-links off-screen behavior */
+        top: 310px;                        
+        right: -100%;                      
         width: 85%;
         max-width: 340px;
         display: flex;
-        justify-content: flex-start;       /* Aligns left along with text elements */
-        padding-left: 32px;                /* Indents cleanly inline with your item text line */
+        justify-content: flex-start;       
+        padding-left: 32px;                
         gap: 20px;
-        z-index: 1060;                     /* Layers beautifully on top of the menu surface background */
+        z-index: 1060;                     
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Slides out in perfect tracking synchronization with the menu page reveal */
     .navbar:has(.nav-links.active) .social-icons {
         right: 0;
     }
@@ -244,7 +239,6 @@
         overflow: hidden;
     }
 
-    /* Cleaned up layout selector for smaller project heading */
     .projects-header h2 {
         font-size: 2rem !important;
         line-height: 1.2 !important;
@@ -252,12 +246,11 @@
         margin-bottom: 12px !important;
     }
 
-    /* Stacks header elements on top of each other cleanly */
     .projects-header-container,
     .projects-header { 
         display: flex !important;
         flex-direction: column !important;
-        align-items: flex-start !important; /* Left aligns layout titles */
+        align-items: flex-start !important; 
         gap: 20px !important;
         width: 100% !important;
         margin-bottom: 28px !important;
@@ -268,7 +261,6 @@
         max-width: 100% !important;
     }
 
-    /* Centers the 4+ badge card on its own row directly below text entries */
     .projects-badge-card { 
         width: 100% !important;
         max-width: 100% !important;
@@ -277,7 +269,7 @@
         margin-top: 10px;
     }
 
-    /* THE SWIPER CONTAINER: Houses your side-by-side scrolling system */
+    /* THE SWIPER CONTAINER */
     .projects-container {
         display: flex !important;
         flex-direction: row !important; 
@@ -294,27 +286,26 @@
         display: none;                  
     }
 
-    /* POLISHED SWIPER CARDS: Center-aligned typography context */
+    /* SWIPER CARDS */
     .project-card { 
         flex: 0 0 88% !important;       
         scroll-snap-align: start;
         display: flex !important;
         flex-direction: column !important; 
-        align-items: center !important;    /* Centers screenshot and copy stack items */
-        text-align: center !important;     /* Centers description text nicely */
-        padding: 24px 20px !important;
+        align-items: center !important;    
+        text-align: center !important;     
+        padding: 20px 16px !important;     /* Shrunk padding slightly to trim card height */
         background: #ffffff;
         border-radius: 20px;
         box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
         box-sizing: border-box;
     }
 
-    /* Image wrapper spans beautifully edge-to-edge inside card borders */
     .project-image-wrapper { 
         width: 100% !important;
         max-width: 100% !important;
         height: auto !important;
-        margin-bottom: 16px !important;
+        margin-bottom: 12px !important;
     }
 
     .project-image-wrapper img {
@@ -332,7 +323,7 @@
 
     .project-info-wrapper h3 {
         font-size: 18px !important;
-        margin: 12px 0 6px 0 !important;
+        margin: 8px 0 6px 0 !important;
         color: #1e293b;
     }
 
@@ -340,26 +331,39 @@
         font-size: 14px !important;
         line-height: 1.5 !important;
         color: #475569;
-        margin-bottom: 12px !important;
+        margin-bottom: 8px !important;
     }
 
-    /* Centers the horizontal technology stack tags row */
+    /* FIX: Force tags row strictly on one line without text wraps or height bloat */
     .project-tech-stack,
+    .project-info-wrapper div,
     .project-card [class*="tech"] {
         display: flex !important;
+        flex-direction: row !important;     /* Keeps them strictly side-by-side */
+        flex-wrap: nowrap !important;        /* Denies stacking onto new lines */
         justify-content: center !important;
-        gap: 12px !important;
-        margin: 14px auto !important;
+        align-items: center !important;
+        gap: 10px !important;
+        margin: 8px auto !important;         /* Tighter top/bottom margins */
         width: 100% !important;
+        height: auto !important;
     }
 
-    /* BALANCED ACTION BUTTON LINK ALIGNMENTS OVER THE LOWER SURFACE */
+    /* Ensure text elements inside the stack stay small and dynamic */
+    .project-card [class*="tech"] span,
+    .project-card .project-tech-stack span {
+        font-size: 12px !important;
+        white-space: nowrap !important;
+    }
+
+    /* ACTION LINKS AT THE BOTTOM */
     .project-links-container,
     .project-card [class*="links"] { 
         display: flex !important;
-        justify-content: space-around !important; /* Perfect space balancing layout tracking */
+        flex-direction: row !important;
+        justify-content: space-around !important; 
         border-top: 1px solid #f1f5f9;
-        padding-top: 16px !important;
+        padding-top: 12px !important;
         margin-top: auto !important; 
         width: 100% !important;
     }
@@ -369,7 +373,6 @@
         font-weight: 600;
     }
 
-    /* Central view-more global navigation spacer wrapper link */
     .view-more-container {
         display: flex;
         justify-content: center;
