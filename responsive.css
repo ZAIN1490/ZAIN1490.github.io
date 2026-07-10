@@ -233,3 +233,88 @@ body.no-scroll {
         font-size: 11px;
     }
 }
+
+    /* ==========================================
+       7. PROJECTS SECTION MOBILE CONFIGURATION
+       ========================================== */
+    #projects {
+        padding: 60px 20px 40px;
+    }
+
+    /* Stack the section intro header and the stats card vertically */
+    .projects-header-container { /* Replace with your actual parent wrapper class if different */
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        margin-bottom: 40px;
+    }
+
+    /* Make the stats badge span cleanly on mobile */
+    .stats-card-class { /* Replace with your actual 4+ card class name */
+        width: 100%;
+        max-width: 100%;
+        padding: 24px;
+        text-align: center;
+    }
+
+    /* Convert individual project row items into vertical column blocks */
+    .project-card { /* Replace with your actual project card container class name */
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        margin-bottom: 24px;
+        border-radius: 20px;
+    }
+
+    /* Force the project image wrapper to take full top width */
+    .project-image-wrapper { /* Replace with your actual project image container class name */
+        width: 100%;
+        height: auto;
+    }
+
+    .project-image-wrapper img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        object-fit: cover;
+    }
+
+    /* Project text content details spacing adjustment */
+    .project-info-wrapper { /* Replace with your actual project text container class name */
+        width: 100%;
+        padding: 0 4px;
+    }
+
+    /* Adjust typography sizing slightly for smaller phone displays */
+    .project-info-wrapper h3 {
+        font-size: 20px;
+        margin: 8px 0;
+    }
+
+    /* Make action links grid intuitive and touch-friendly */
+    .project-links-container { /* Replace with your actual links footer element class name */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid #f1f5f9;
+        padding-top: 16px;
+        margin-top: 20px;
+    }
+
+    .project-links-container a {
+        font-size: 14px;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    /* Center and scale the main "View More Projects" button base */
+    .view-more-btn-class { /* Replace with your actual purple main button class name */
+        width: 100%;
+        max-width: 280px;
+        margin: 20px auto 0;
+        display: flex;
+        justify-content: center;
+    }
