@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://zainmasood.vercel.app/
+Sitemap: https://zainmasood.vercel.app/sitemap.xml
